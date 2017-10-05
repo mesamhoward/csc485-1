@@ -1,0 +1,311 @@
+
+Nadia left immediately 
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPastIntransP
+      (VPastIntrans_p (VPastIntrans left) (Adv immediately)))))
+
+the cat with the long soft fur slowly ate 
+(S
+  (NP
+    (DetP (Detsg the) (Nsg cat))
+    (PP
+      (P with)
+      (NP
+        (AdjPP
+          (Detpl the)
+          (AdjP (Adj long) (AdjP (Adj soft)))
+          (Npl fur)))))
+  (VP
+    (VPastIntransP (VPastIntrans_p (Adv slowly) (VPastIntrans ate)))))
+(S
+  (NP
+    (DetP (Detsg the) (Nsg cat))
+    (PP
+      (P with)
+      (NP
+        (AdjPP
+          (Detsg the)
+          (AdjP (Adj long) (AdjP (Adj soft)))
+          (Nsg fur)))))
+  (VP
+    (VPastIntransP (VPastIntrans_p (Adv slowly) (VPastIntrans ate)))))
+
+she arrived
+(S
+  (NP (NProSub she))
+  (VP (VPastIntransP (VPastIntrans_p (VPastIntrans arrived)))))
+
+Nadia will leave
+(S
+  (S_2
+    (NP (NPrp Nadia))
+    (AuxVP (ModalP (Modal will) (VPresIntrans leave)))))
+
+Nadia has left 
+(S
+  (S_2
+    (NP (NPrp Nadia))
+    (AuxVP (PerfP (Perfect has) (VPastIntrans_2 left)))))
+
+Nadia may have been leaving 
+(S
+  (S_2
+    (NP (NPrp Nadia))
+    (AuxVP
+      (ModalP
+        (Modal may)
+        (PerfP
+          (Perfect have)
+          (ProgP (Progressive been) (VingIntrans leaving)))))))
+
+Nadia fondled the eggplant 
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP fondled))
+      (NP_Obj (DetP (Detsgv the) (Nsgv eggplant))))))
+
+the handsome poodle brought Ross to the autoclave 
+(S
+  (NP (AdjPP (Detsg the) (AdjP (Adj handsome)) (Nsg poodle)))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP brought))
+      (NP_Obj (NPrp Ross))
+      (PP (P to) (NP (DetP (Detsgv the) (Nsgv autoclave)))))))
+
+Nadia brought a package for the cheese 
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP brought))
+      (NP_Obj (DetP (Detsg a) (Nsg package)))
+      (PP (P for) (NP (DetP (Detpl the) (Npl cheese)))))))
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP brought))
+      (NP_Obj (DetP (Detsg a) (Nsg package)))
+      (PP (P for) (NP (DetP (Detsg the) (Nsg cheese)))))))
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP brought))
+      (NP_Obj
+        (DetP (Detsg a) (Nsg package))
+        (PP (P for) (NP (DetP (Detpl the) (Npl cheese))))))))
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP brought))
+      (NP_Obj
+        (DetP (Detsg a) (Nsg package))
+        (PP (P for) (NP (DetP (Detsg the) (Nsg cheese))))))))
+
+they told her to jump onto the elephant 
+(S
+  (NP (NProSub they))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP told))
+      (NP_Obj (NProObj her))
+      (PVP
+        (P to)
+        (VPresIntransP
+          (VPresIntrans_p (VPresIntrans jump))
+          (PP (P onto) (NP (DetP (Detsgv the) (Nsgv elephant)))))))))
+
+she believed that Ross was already on the hovercraft 
+(S
+  (NP (NProSub she))
+  (VP
+    (VPast_RelP
+      (VPast_Rel believed)
+      (RelSub that)
+      (S
+        (NP (NPrp Ross))
+        (VP
+          (VPastIntransP
+            (VPastIntrans_p (VPastIntrans was) (Adv already))
+            (PP (P on) (NP (DetP (Detsg the) (Nsg hovercraft))))))))))
+
+she really wanted help 
+(S
+  (NP (NProSub she))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (Adv really) (VPast_NP wanted))
+      (NP_Obj (Nuncount help)))))
+
+she really wanted to help 
+(S
+  (NP (NProSub she))
+  (VP
+    (VPastIntransP
+      (VPastIntrans_p (Adv really) (VPastIntrans wanted))
+      (PP (P to) (NP (Nuncount help))))))
+
+cheese was always on the menu 
+(S
+  (NP (Nuncount cheese))
+  (VP
+    (VPastIntransP
+      (VPastIntrans_p (VPastIntrans was) (Adv always))
+      (PP (P on) (NP (DetP (Detsg the) (Nsg menu)))))))
+(S
+  (NP (Npl cheese))
+  (VP
+    (VPastIntransP
+      (VPastIntrans_p (VPastIntrans was) (Adv always))
+      (PP (P on) (NP (DetP (Detsg the) (Nsg menu)))))))
+
+the eggplant reminded Nadia of Ross 
+(S
+  (NP (DetP (Detsgv the) (Nsgv eggplant)))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP reminded))
+      (NP_Obj (NPrp Nadia))
+      (PP (P of) (NP (NPrp Ross))))))
+
+Nadia rewarded the man with the eggplant
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP rewarded))
+      (NP_Obj (DetP (Detsg the) (Nsg man)))
+      (PP (P with) (NP (DetP (Detsgv the) (Nsgv eggplant)))))))
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP rewarded))
+      (NP_Obj
+        (DetP (Detsg the) (Nsg man))
+        (PP (P with) (NP (DetP (Detsgv the) (Nsgv eggplant))))))))
+
+Nadia won an elephant
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP won))
+      (NP_Obj (DetP (Detsgv an) (Nsgv elephant))))))
+
+I could have demanded
+(S
+  (S_2
+    (NP (NProSub I))
+    (AuxVP
+      (ModalP
+        (Modal could)
+        (PerfP (Perfect have) (VPastIntrans_2 demanded))))))
+
+autopoiesis always reminded her of Marseilles
+(S
+  (NP (Npl autopoiesis))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (Adv always) (VPast_NP reminded))
+      (NP_Obj (NProObj her))
+      (PP (P of) (NP (NPrp Marseilles))))))
+
+I saw Nadia on a boat with my elephant
+(S
+  (NP (NProSub I))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP saw))
+      (NP_Obj (NPrp Nadia))
+      (PP
+        (P on)
+        (NP
+          (DetP (Detsg a) (Nsg boat))
+          (PP (P with) (NP (DetP (Detsgv my) (Nsgv elephant)))))))))
+
+an elephant had been being won
+(S
+  (S_2
+    (NP (DetP (Detsgv an) (Nsgv elephant)))
+    (AuxVP
+      (PerfP
+        (Perfect had)
+        (ProgP
+          (Progressive been)
+          (PassP (Passive being) (VPast_NP_2 won)))))))
+
+Nadia with the long soft fur slowly ate 
+No parses
+
+the cat with the tall her arrived 
+No parses
+
+Nadia will left 
+No parses
+
+Nadia has could leave 
+No parses
+
+Nadia has had left 
+No parses
+
+Nadia found 
+No parses
+
+Ross brought to him
+No parses
+
+they told to jump onto the elephant
+No parses
+
+Nadia was reminded
+No parses
+
+she ate she
+No parses
+
+Nadia wanted really help
+(S
+  (NP (NPrp Nadia))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p (VPast_NP wanted) (Adv really))
+      (NP_Obj (Nuncount help)))))
+
+Nadia have be jumping
+(S
+  (S_2
+    (NP (NPrp Nadia))
+    (AuxVP
+      (PerfP
+        (Perfect have)
+        (ProgP (Progressive be) (VingIntrans jumping))))))
+
+she will been jumping
+(S
+  (S_2
+    (NP (NProSub she))
+    (AuxVP
+      (ModalP
+        (Modal will)
+        (ProgP (Progressive been) (VingIntrans jumping))))))
+
+I was jumping
+No parses
+
+I could have demanded an eggplant
+No parses
+
+I have eaten an eggplant
+No parses
+
+I have been eating eggplants
+No parses
