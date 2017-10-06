@@ -688,6 +688,13 @@ I has been jumping
       (PerfP
         (Perfect has)
         (ProgP_perf (Progressive_perf been) (VingIntrans jumping))))))
+he jumped of the cat
+(S
+  (NP (NProSub he))
+  (VP
+    (VPastIntransP
+      (VPastIntrans_p (VPastIntrans jumped))
+      (PP (P of) (NP (DetP (Detsg the) (Nsg cat)))))))
 
 % Undergen
 I eat

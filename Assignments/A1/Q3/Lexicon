@@ -1,4 +1,4 @@
-% Xin Wen, wenxin6 1000442666
+% Xin Wen, wenxin6, 1000442666
 
 % preposition
 P -> 'with' | 'for' | 'on' | 'onto' | 'to' | 'of' | 'from' | 'before' | 'after'

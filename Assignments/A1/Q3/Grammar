@@ -1,4 +1,4 @@
-% Xin Wen, wenxin6 1000442666
+% Xin Wen, wenxin6, 1000442666
 
 S -> NP VP | S_2
 S_2 -> NP AuxVP
