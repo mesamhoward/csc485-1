@@ -1,0 +1,25 @@
+Modal ->
+can
+may
+could
+should
+shall
+might
+must
+would
+will
+
+Perfect ->
+have
+has
+had
+
+Progressive ->
+be
+been
+being
+
+Passive ->
+be
+been
+being

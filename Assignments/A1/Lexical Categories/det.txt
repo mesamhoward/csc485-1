@@ -1,0 +1,35 @@
+Detsg ->
+a
+the
+my
+her
+his
+their
+our
+your
+this
+that
+
+Detsgv ->
+an
+the
+my
+her
+his
+their
+our
+your
+this
+that
+
+Detpl ->
+the
+my
+her
+his
+their
+our
+your
+these
+those
+

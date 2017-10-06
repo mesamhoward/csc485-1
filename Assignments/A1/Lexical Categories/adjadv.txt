@@ -1,0 +1,14 @@
+Adv ->
+slowly
+immediately
+already
+really
+always
+before
+after
+
+Adj ->
+handsome
+tall
+long
+soft

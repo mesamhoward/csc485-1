@@ -1,0 +1,24 @@
+NPrp ->
+Nadia
+Ross
+Marseilles
+Google
+
+NProSub ->
+I
+you
+he
+she
+it
+we
+they
+
+NProObj ->
+me
+you
+him
+her
+it
+us
+you
+them
