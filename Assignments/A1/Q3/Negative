@@ -1,4 +1,4 @@
-% Xin Wen, wenxin6 1000442666
+% Xin Wen, wenxin6, 1000442666
 % 3.1
 Nadia with the long soft fur slowly ate 
 the cat with the tall her arrived 
@@ -8,7 +8,6 @@ him ate cats
 cat ate the eggplant
 %test PP
 Nadia with the soft fur ate
-soft Nadia ate
 soft she ate
 she with the soft fur ate
 the cat with the soft ate
@@ -26,12 +25,17 @@ the cat soft fur ate
 the cat with soft ate
 %test transitivity
 the cat brought
+%test VPastIntrans
+the cat brought
+the cat bring
+the cat eat
 % 3.2
 Nadia will left 
 Nadia has could leave 
-Nadia has had left 
+Nadia has had left
+I will ate 
 %Passive
-I was help
+I was eat
 % Progressive
 I am help
 he is helped

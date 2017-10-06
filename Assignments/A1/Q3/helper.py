@@ -16,7 +16,7 @@ def output(name, grammar):
             if "%" not in line:
                 sentence = nltk.tokenize.word_tokenize(line)
                 parser = nltk.parse.BottomUpChartParser(grammar)
-                print("\n" + line.rstrip("\n"))
+                print(line.rstrip("\n"))
                 for t in parser.parse_all(sentence):
                     passed = True
                     print(t)

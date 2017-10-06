@@ -1,11 +1,12 @@
+% Xin Wen, wenxin6, 1000442666
 
+% Positive
 Nadia left immediately 
 (S
   (NP (NPrp Nadia))
   (VP
     (VPastIntransP
       (VPastIntrans_p (VPastIntrans left) (Adv immediately)))))
-
 the cat with the long soft fur slowly ate 
 (S
   (NP
@@ -31,39 +32,32 @@ the cat with the long soft fur slowly ate
           (Nsg fur)))))
   (VP
     (VPastIntransP (VPastIntrans_p (Adv slowly) (VPastIntrans ate)))))
-
 she arrived
 (S
   (NP (NProSub she))
   (VP (VPastIntransP (VPastIntrans_p (VPastIntrans arrived)))))
-
 she arrived
 (S
   (NP (NProSub she))
   (VP (VPastIntransP (VPastIntrans_p (VPastIntrans arrived)))))
-
 the cat arrived
 (S
   (NP (DetP (Detsg the) (Nsg cat)))
   (VP (VPastIntransP (VPastIntrans_p (VPastIntrans arrived)))))
-
 cats arrived
 (S
   (NP (Npl cats))
   (VP (VPastIntransP (VPastIntrans_p (VPastIntrans arrived)))))
-
 Nadia will leave
 (S
   (S_2
     (NP (NPrp Nadia))
     (AuxVP (ModalP (Modal will) (VPresIntrans leave)))))
-
 Nadia has left 
 (S
   (S_2
     (NP (NPrp Nadia))
     (AuxVP (PerfP (Perfect has) (VPastIntrans_2 left)))))
-
 Nadia may have been leaving 
 (S
   (S_2
@@ -74,15 +68,14 @@ Nadia may have been leaving
         (PerfP_mod
           (Perfect_mod have)
           (ProgP_perf (Progressive_perf been) (VingIntrans leaving)))))))
-
 Nadia fondled the eggplant
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP fondled))
-      (NP_Obj (DetP (Detsgv the) (Nsgv eggplant))))))
-
+      (VPast_NP_p
+        (VPast_NP fondled)
+        (NP_Obj (DetP (Detsgv the) (Nsgv eggplant)))))))
 the elephant had been being won
 (S
   (S_2
@@ -93,25 +86,21 @@ the elephant had been being won
         (ProgP_perf
           (Passive_perf been)
           (PassP_prog (Passive_prog being) (VPastIntrans_2 won)))))))
-
 I was helped
 (S
   (S_2
     (NP (NProSub I))
     (AuxVP (PassP (Passive was) (VPastIntrans_2 helped)))))
-
 I am helping
 (S
   (S_2
     (NP (NProSub I))
     (AuxVP (ProgP (Progressive am) (VingIntrans helping)))))
-
 I was helping
 (S
   (S_2
     (NP (NProSub I))
     (AuxVP (ProgP (Progressive was) (VingIntrans helping)))))
-
 I was being helped
 (S
   (S_2
@@ -120,13 +109,11 @@ I was being helped
       (ProgP
         (Progressive was)
         (PassP_prog (Passive_prog being) (VPastIntrans_2 helped))))))
-
 I have helped
 (S
   (S_2
     (NP (NProSub I))
     (AuxVP (PerfP (Perfect have) (VPastIntrans_2 helped)))))
-
 I have been helping
 (S
   (S_2
@@ -135,7 +122,6 @@ I have been helping
       (PerfP
         (Perfect have)
         (ProgP_perf (Progressive_perf been) (VingIntrans helping))))))
-
 I have been helped
 (S
   (S_2
@@ -144,7 +130,6 @@ I have been helped
       (PerfP
         (Perfect have)
         (PassP_perf (Passive_perf been) (VPastIntrans_2 helped))))))
-
 I have been being helped
 (S
   (S_2
@@ -155,13 +140,11 @@ I have been being helped
         (ProgP_perf
           (Passive_perf been)
           (PassP_prog (Passive_prog being) (VPastIntrans_2 helped)))))))
-
 I will help
 (S
   (S_2
     (NP (NProSub I))
     (AuxVP (ModalP (Modal will) (VPresIntrans help)))))
-
 I will have helped
 (S
   (S_2
@@ -170,7 +153,6 @@ I will have helped
       (ModalP
         (Modal will)
         (PerfP_mod (Perfect_mod have) (VPastIntrans_2 helped))))))
-
 I will be helping
 (S
   (S_2
@@ -179,7 +161,6 @@ I will be helping
       (ModalP
         (Modal will)
         (ProgP_mod (Progressive_mod be) (VingIntrans helping))))))
-
 I will be helped
 (S
   (S_2
@@ -188,7 +169,6 @@ I will be helped
       (ModalP
         (Modal will)
         (PassP_mod (Passive_mod be) (VPastIntrans_2 helped))))))
-
 I will have been helping
 (S
   (S_2
@@ -199,7 +179,6 @@ I will have been helping
         (PerfP_mod
           (Perfect_mod have)
           (ProgP_perf (Progressive_perf been) (VingIntrans helping)))))))
-
 I will have been helped
 (S
   (S_2
@@ -210,7 +189,6 @@ I will have been helped
         (PerfP_mod
           (Perfect_mod have)
           (PassP_perf (Passive_perf been) (VPastIntrans_2 helped)))))))
-
 I will have been being helped
 (S
   (S_2
@@ -223,61 +201,59 @@ I will have been being helped
           (ProgP_perf
             (Passive_perf been)
             (PassP_prog (Passive_prog being) (VPastIntrans_2 helped))))))))
-
 the handsome poodle brought Ross to the autoclave 
 (S
   (NP (AdjPP (Detsg the) (AdjP (Adj handsome)) (Nsg poodle)))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (NPrp Ross))
+      (VPast_NP_p (VPast_NP brought) (NP_Obj (NPrp Ross)))
       (PP (P to) (NP (DetP (Detsgv the) (Nsgv autoclave)))))))
-
 Nadia brought a package for the cheese 
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (DetP (Detsg a) (Nsg package)))
+      (VPast_NP_p
+        (VPast_NP brought)
+        (NP_Obj (DetP (Detsg a) (Nsg package))))
       (PP (P for) (NP (DetP (Detpl the) (Npl cheese)))))))
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (DetP (Detsg a) (Nsg package)))
+      (VPast_NP_p
+        (VPast_NP brought)
+        (NP_Obj (DetP (Detsg a) (Nsg package))))
       (PP (P for) (NP (DetP (Detsg the) (Nsg cheese)))))))
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj
-        (DetP (Detsg a) (Nsg package))
-        (PP (P for) (NP (DetP (Detpl the) (Npl cheese))))))))
+      (VPast_NP_p
+        (VPast_NP brought)
+        (NP_Obj
+          (DetP (Detsg a) (Nsg package))
+          (PP (P for) (NP (DetP (Detpl the) (Npl cheese)))))))))
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj
-        (DetP (Detsg a) (Nsg package))
-        (PP (P for) (NP (DetP (Detsg the) (Nsg cheese))))))))
-
+      (VPast_NP_p
+        (VPast_NP brought)
+        (NP_Obj
+          (DetP (Detsg a) (Nsg package))
+          (PP (P for) (NP (DetP (Detsg the) (Nsg cheese)))))))))
 they told her to jump onto the elephant 
 (S
   (NP (NProSub they))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP told))
-      (NP_Obj (NProObj her))
+      (VPast_NP_p (VPast_NP told) (NP_Obj (NProObj her)))
       (PVP
         (P to)
         (VPresIntransP
           (VPresIntrans_p (VPresIntrans jump))
           (PP (P onto) (NP (DetP (Detsgv the) (Nsgv elephant)))))))))
-
 she believed that Ross was already on the hovercraft 
 (S
   (NP (NProSub she))
@@ -291,15 +267,15 @@ she believed that Ross was already on the hovercraft
           (VPastIntransP
             (VPastIntrans_p (VPastIntrans was) (Adv already))
             (PP (P on) (NP (DetP (Detsg the) (Nsg hovercraft))))))))))
-
 she really wanted help 
 (S
   (NP (NProSub she))
   (VP
     (VPast_NPP
-      (VPast_NP_p (Adv really) (VPast_NP wanted))
-      (NP_Obj (Nuncount help)))))
-
+      (VPast_NP_p
+        (Adv really)
+        (VPast_NP wanted)
+        (NP_Obj (Nuncount help))))))
 she really wanted to help 
 (S
   (NP (NProSub she))
@@ -315,7 +291,6 @@ she really wanted to help
     (VPastIntransP
       (VPastIntrans_p (Adv really) (VPastIntrans wanted))
       (PP (P to) (NP (Nuncount help))))))
-
 cheese was always on the menu 
 (S
   (NP (Nuncount cheese))
@@ -329,41 +304,39 @@ cheese was always on the menu
     (VPastIntransP
       (VPastIntrans_p (VPastIntrans was) (Adv always))
       (PP (P on) (NP (DetP (Detsg the) (Nsg menu)))))))
-
 the eggplant reminded Nadia of Ross 
 (S
   (NP (DetP (Detsgv the) (Nsgv eggplant)))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP reminded))
-      (NP_Obj (NPrp Nadia))
+      (VPast_NP_p (VPast_NP reminded) (NP_Obj (NPrp Nadia)))
       (PP (P of) (NP (NPrp Ross))))))
-
 Nadia rewarded the man with the eggplant
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP rewarded))
-      (NP_Obj (DetP (Detsg the) (Nsg man)))
+      (VPast_NP_p
+        (VPast_NP rewarded)
+        (NP_Obj (DetP (Detsg the) (Nsg man))))
       (PP (P with) (NP (DetP (Detsgv the) (Nsgv eggplant)))))))
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP rewarded))
-      (NP_Obj
-        (DetP (Detsg the) (Nsg man))
-        (PP (P with) (NP (DetP (Detsgv the) (Nsgv eggplant))))))))
-
+      (VPast_NP_p
+        (VPast_NP rewarded)
+        (NP_Obj
+          (DetP (Detsg the) (Nsg man))
+          (PP (P with) (NP (DetP (Detsgv the) (Nsgv eggplant)))))))))
 Nadia won an elephant
 (S
   (NP (NPrp Nadia))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP won))
-      (NP_Obj (DetP (Detsgv an) (Nsgv elephant))))))
-
+      (VPast_NP_p
+        (VPast_NP won)
+        (NP_Obj (DetP (Detsgv an) (Nsgv elephant)))))))
 I could have demanded
 (S
   (S_2
@@ -372,44 +345,41 @@ I could have demanded
       (ModalP
         (Modal could)
         (PerfP_mod (Perfect_mod have) (VPastIntrans_2 demanded))))))
-
 autopoiesis always reminded her of Marseilles
 (S
   (NP (Npl autopoiesis))
   (VP
     (VPast_NPP
-      (VPast_NP_p (Adv always) (VPast_NP reminded))
-      (NP_Obj (NProObj her))
+      (VPast_NP_p
+        (Adv always)
+        (VPast_NP reminded)
+        (NP_Obj (NProObj her)))
       (PP (P of) (NP (NPrp Marseilles))))))
-
 I saw Nadia on a boat with my elephant
 (S
   (NP (NProSub I))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP saw))
-      (NP_Obj (NPrp Nadia))
+      (VPast_NP_p (VPast_NP saw) (NP_Obj (NPrp Nadia)))
       (PP
         (P on)
         (NP
           (DetP (Detsg a) (Nsg boat))
           (PP (P with) (NP (DetP (Detsgv my) (Nsgv elephant)))))))))
-
 the cat ate eggplants on eggplants
 (S
   (NP (DetP (Detsg the) (Nsg cat)))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP ate))
-      (NP_Obj (Npl eggplants))
+      (VPast_NP_p (VPast_NP ate) (NP_Obj (Npl eggplants)))
       (PP (P on) (NP (Npl eggplants))))))
 (S
   (NP (DetP (Detsg the) (Nsg cat)))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP ate))
-      (NP_Obj (Npl eggplants) (PP (P on) (NP (Npl eggplants)))))))
-
+      (VPast_NP_p
+        (VPast_NP ate)
+        (NP_Obj (Npl eggplants) (PP (P on) (NP (Npl eggplants))))))))
 she jumped to the cat
 (S
   (NP (NProSub she))
@@ -417,13 +387,11 @@ she jumped to the cat
     (VPastIntransP
       (VPastIntrans_p (VPastIntrans jumped))
       (PP (P to) (NP (DetP (Detsg the) (Nsg cat)))))))
-
 the poodle brought Ross
 (S
   (NP (DetP (Detsg the) (Nsg poodle)))
   (VP
-    (VPast_NPP (VPast_NP_p (VPast_NP brought)) (NP_Obj (NPrp Ross)))))
-
+    (VPast_NPP (VPast_NP_p (VPast_NP brought) (NP_Obj (NPrp Ross))))))
 the poodle arrived on the cat
 (S
   (NP (DetP (Detsg the) (Nsg poodle)))
@@ -431,15 +399,14 @@ the poodle arrived on the cat
     (VPastIntransP
       (VPastIntrans_p (VPastIntrans arrived))
       (PP (P on) (NP (DetP (Detsg the) (Nsg cat)))))))
-
 the poodle brought the soft cat
 (S
   (NP (DetP (Detsg the) (Nsg poodle)))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (AdjPP (Detsg the) (AdjP (Adj soft)) (Nsg cat))))))
-
+      (VPast_NP_p
+        (VPast_NP brought)
+        (NP_Obj (AdjPP (Detsg the) (AdjP (Adj soft)) (Nsg cat)))))))
 the soft poodle arrived slowly on the soft cat
 (S
   (NP (AdjPP (Detsg the) (AdjP (Adj soft)) (Nsg poodle)))
@@ -449,35 +416,29 @@ the soft poodle arrived slowly on the soft cat
       (PP
         (P on)
         (NP (AdjPP (Detsg the) (AdjP (Adj soft)) (Nsg cat)))))))
-
 the cat brought Ross before the cat ate cheese
 (S
   (NP (DetP (Detsg the) (Nsg cat)))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (NPrp Ross))
+      (VPast_NP_p (VPast_NP brought) (NP_Obj (NPrp Ross)))
       (Conjugation before)
       (S
         (NP (DetP (Detsg the) (Nsg cat)))
         (VP
           (VPast_NPP
-            (VPast_NP_p (VPast_NP ate))
-            (NP_Obj (Nuncount cheese))))))))
+            (VPast_NP_p (VPast_NP ate) (NP_Obj (Nuncount cheese)))))))))
 (S
   (NP (DetP (Detsg the) (Nsg cat)))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (NPrp Ross))
+      (VPast_NP_p (VPast_NP brought) (NP_Obj (NPrp Ross)))
       (Conjugation before)
       (S
         (NP (DetP (Detsg the) (Nsg cat)))
         (VP
           (VPast_NPP
-            (VPast_NP_p (VPast_NP ate))
-            (NP_Obj (Npl cheese))))))))
-
+            (VPast_NP_p (VPast_NP ate) (NP_Obj (Npl cheese)))))))))
 she ate before the cat ate
 (S
   (NP (NProSub she))
@@ -488,7 +449,6 @@ she ate before the cat ate
       (S
         (NP (DetP (Detsg the) (Nsg cat)))
         (VP (VPastIntransP (VPastIntrans_p (VPastIntrans ate))))))))
-
 she reminded Ross that the cat ate the cheese
 (S
   (NP (NProSub she))
@@ -501,8 +461,9 @@ she reminded Ross that the cat ate the cheese
         (NP (DetP (Detsg the) (Nsg cat)))
         (VP
           (VPast_NPP
-            (VPast_NP_p (VPast_NP ate))
-            (NP_Obj (DetP (Detpl the) (Npl cheese)))))))))
+            (VPast_NP_p
+              (VPast_NP ate)
+              (NP_Obj (DetP (Detpl the) (Npl cheese))))))))))
 (S
   (NP (NProSub she))
   (VP
@@ -514,9 +475,9 @@ she reminded Ross that the cat ate the cheese
         (NP (DetP (Detsg the) (Nsg cat)))
         (VP
           (VPast_NPP
-            (VPast_NP_p (VPast_NP ate))
-            (NP_Obj (DetP (Detsg the) (Nsg cheese)))))))))
-
+            (VPast_NP_p
+              (VPast_NP ate)
+              (NP_Obj (DetP (Detsg the) (Nsg cheese))))))))))
 she ate to eat
 (S
   (NP (NProSub she))
@@ -526,7 +487,6 @@ she ate to eat
       (PVP
         (P to)
         (VPresIntransP (VPresIntrans_p (VPresIntrans eat)))))))
-
 she ate to eat the cat
 (S
   (NP (NProSub she))
@@ -536,218 +496,182 @@ she ate to eat the cat
       (PVP
         (P to)
         (VPres_NPP
-          (VPres_NP eat)
-          (NP_Obj (DetP (Detsg the) (Nsg cat))))))))
-
+          (VPres_NP_p
+            (VPres_NP eat)
+            (NP_Obj (DetP (Detsg the) (Nsg cat)))))))))
 he brought Ross to eat Ross
 (S
   (NP (NProSub he))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (NPrp Ross))
-      (PVP (P to) (VPres_NPP (VPres_NP eat) (NP_Obj (NPrp Ross)))))))
-
+      (VPast_NP_p (VPast_NP brought) (NP_Obj (NPrp Ross)))
+      (PVP
+        (P to)
+        (VPres_NPP (VPres_NP_p (VPres_NP eat) (NP_Obj (NPrp Ross))))))))
 he brought Ross to bring Ross
 (S
   (NP (NProSub he))
   (VP
     (VPast_NPP
-      (VPast_NP_p (VPast_NP brought))
-      (NP_Obj (NPrp Ross))
-      (PVP (P to) (VPres_NPP (VPres_NP bring) (NP_Obj (NPrp Ross)))))))
+      (VPast_NP_p (VPast_NP brought) (NP_Obj (NPrp Ross)))
+      (PVP
+        (P to)
+        (VPres_NPP
+          (VPres_NP_p (VPres_NP bring) (NP_Obj (NPrp Ross))))))))
+she ate the cat slowly
+(S
+  (NP (NProSub she))
+  (VP
+    (VPast_NPP
+      (VPast_NP_p
+        (VPast_NP ate)
+        (NP_Obj (DetP (Detsg the) (Nsg cat)))
+        (Adv slowly)))))
+she jumped to eat the cat slowly
+(S
+  (NP (NProSub she))
+  (VP
+    (VPastIntransP
+      (VPastIntrans_PrepV_p (VPastIntrans_PrepV jumped))
+      (PVP
+        (P to)
+        (VPres_NPP
+          (VPres_NP_p
+            (VPres_NP eat)
+            (NP_Obj (DetP (Detsg the) (Nsg cat)))
+            (Adv slowly)))))))
 
+% Negative
 Nadia with the long soft fur slowly ate 
 No parses
-
 the cat with the tall her arrived 
 No parses
-
 she ate she
 No parses
-
 him ate cats
 No parses
-
 cat ate the eggplant
 No parses
-
 Nadia with the soft fur ate
 No parses
-
-soft Nadia ate
-No parses
-
 soft she ate
 No parses
-
 she with the soft fur ate
 No parses
-
 the cat with the soft ate
 No parses
-
 slowly she ate
 No parses
-
 the cat slowly with the soft fur ate
 No parses
-
 slowly Nadia ate
 No parses
-
 a eggplant ate
 No parses
-
 these eggplant ate
 No parses
-
 a cats ate
 No parses
-
 she with the fur ate
 No parses
-
 the cat soft fur ate
 No parses
-
 the cat with soft ate
 No parses
-
 the cat brought
 No parses
-
+the cat brought
+No parses
+the cat bring
+No parses
+the cat eat
+No parses
 Nadia will left 
 No parses
-
 Nadia has could leave 
 No parses
-
-Nadia has had left 
+Nadia has had left
 No parses
-
-I was help
+I will ate 
 No parses
-
+I was eat
+No parses
 I am help
 No parses
-
 he is helped
 No parses
-
 I was being help
 No parses
-
 I was being helping
 No parses
-
 he is was helped
 No parses
-
 I have helping
 No parses
-
 I have been help
 No parses
-
 I have been being help
 No parses
-
 I have been being helping
 No parses
-
 I will helped
 No parses
-
 I will helping
 No parses
-
 I will have helping
 No parses
-
 I will have help
 No parses
-
 I will had helped
 No parses
-
 I will be help
 No parses
-
 I will was help
 No parses
-
 I will been helped
 No parses
-
 I will have been help
 No parses
-
 I will have been being helping
 No parses
-
 Nadia found 
 No parses
-
 Ross brought to him
 No parses
-
 they told to jump onto the elephant
 No parses
-
 Nadia was reminded
 No parses
-
 the her elephant fondled cats
 No parses
-
 he eaten
 No parses
-
 I had was 
 No parses
-
 the poodle brought
 No parses
-
 the cat brought Ross the cat before ate cheese
 No parses
-
 she ate before the cat brought
 No parses
-
 she told before the cat ate
 No parses
-
 she fondled Ross that the cat ate the cheese
 No parses
-
 she brought Ross that the cat ate the cheese
 No parses
-
 she told Ross that the cat
 No parses
-
 she brought to eat
 No parses
-
 she ate to ate
 No parses
-
 he brought Ross to eat eat
 No parses
-
 he brought Ross eat
 No parses
 
-Nadia wanted really help
-(S
-  (NP (NPrp Nadia))
-  (VP
-    (VPast_NPP
-      (VPast_NP_p (VPast_NP wanted) (Adv really))
-      (NP_Obj (Nuncount help)))))
-
+% Overgen
 I is being jumped
 (S
   (S_2
@@ -756,7 +680,6 @@ I is being jumped
       (ProgP
         (Progressive is)
         (PassP_prog (Passive_prog being) (VPastIntrans_2 jumped))))))
-
 I has been jumping
 (S
   (S_2
@@ -766,31 +689,24 @@ I has been jumping
         (Perfect has)
         (ProgP_perf (Progressive_perf been) (VingIntrans jumping))))))
 
-she ate to the cat
-(S
-  (NP (NProSub she))
-  (VP
-    (VPastIntransP
-      (VPastIntrans_p (VPastIntrans ate))
-      (PP (P to) (NP (DetP (Detsg the) (Nsg cat)))))))
-
+% Undergen
 I eat
 No parses
-
+soft Nadia ate the cat
+No parses
 I will have a cat
 No parses
-
 I will arrive on the cat
 No parses
-
 I will be a cat
 No parses
-
 I have eaten eggplant
 No parses
-
+I will be arriving on the cat
+No parses
+I will jump to the cat
+No parses
 I could have demanded an eggplant
 No parses
-
 I fondle the cat
 No parses

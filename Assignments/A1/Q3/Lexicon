@@ -28,18 +28,23 @@ Npl -> 'cats' | 'furs' | 'fur' | 'eggplants' | 'rutabagas' | 'boats' | 'poodles'
 Nuncount -> 'fur' | 'rutabaga' | 'cheese' | 'help' | 'eggplant'
 
 % verb.txt
+% Intransitives (past)
 VPastIntrans -> 'fondled' | 'was' | 'arrived' | 'helped' | 'left' | 'shot' | 'ate' | 'told' | 'jumped' | 'believed' | 'won' | 'saw' | 'wanted' | 'helped' | 'demanded' | 'gave'
+% Intransitives that can be followed by PP or Conjugation (past)
 VPastIntrans_PrepV -> 'was' | 'fondled' | 'ate' | 'arrived' | 'helped' | 'left' | 'jumped' | 'wanted' | 'demanded'
 VPastIntrans_conj -> 'ate' | 'arrived' | 'helped' | 'left' | 'shot' | 'jumped' | 'won'
 
-VPast_NP -> 'had' | 'fondled' | 'brought' | 'reminded' | 'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'ate' | 'told' | 'jumped' | 'believed' | 'won' | 'saw' | 'wanted' | 'helped' | 'demanded' | 'gave'
+% transitives (past)
+VPast_NP -> 'was' | 'had' | 'fondled' | 'brought' | 'reminded' | 'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'ate' | 'told' | 'jumped' | 'believed' | 'won' | 'saw' | 'wanted' | 'helped' | 'demanded' | 'gave'
 VPast_Rel -> 'found' | 'believed' | 'saw' | 'demanded'
 VPast_Rel_NP -> 'reminded' | 'told' | 'believed' | 'demanded'
 
+% Intransitives and transitives (past)
 VPresIntrans -> 'fondle' | 'be' | 'arrive' | 'help' | 'leave' | 'shoot' | 'eat' | 'tell' | 'jump' | 'believe' | 'win' | 'see' | 'want' | 'help' | 'demand' | 'give'
 VPres_NP -> 'has' | 'fondle' | 'bring' | 'remind' | 'reward' | 'find' | 'help' | 'leave' | 'shoot' | 'eat' | 'tell' | 'jump' | 'believe' | 'win' | 'see' | 'want' | 'help' | 'demand' | 'give'
 
 % q2.txt
+% Intransitives (Past + Future)
 VPastIntrans_2 -> 'fondled' | 'been' | 'arrived' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given'
 VingIntrans -> 'fondling' | 'being' | 'arriving' | 'helping' | 'leaving' | 'shooting' | 'eating' | 'telling' | 'jumping' | 'believing' | 'winning' | 'seeing' | 'wanting' | 'helping' | 'demanding' | 'giving'
 
@@ -49,7 +54,7 @@ Modal -> 'can' | 'may' | 'could' | 'should' | 'shall' | 'might' | 'must' | 'woul
 Perfect -> 'have' | 'has' | 'had'
 Perfect_mod -> 'have'
 
-Progressive -> 'is' | 'am' | 'was' | 'were'
+Progressive -> 'is' | 'are' | 'am' | 'was' | 'were'
 Progressive_mod -> 'be'
 Progressive_perf -> 'been'
 
