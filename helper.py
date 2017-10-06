@@ -36,10 +36,10 @@ def autotest(name, grammar):
                 for t in parser.parse_all(s):
                     passed = True
                     if name == "Negative" or name == "Undergen":
-                        print("FAILURE: " + line)
+                        print("FAILURE: " + line + "\n")
                 if not passed:
                     if name == "Positive" or name == "Overgen":
-                        print('FAILURE: ' + line)
+                        print('FAILURE: ' + line + "\n")
                     c += 1
                 passed = False
     if (name == "Positive" or name == "Overgen") and c == 0:

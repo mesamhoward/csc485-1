@@ -37,11 +37,20 @@ VPres_NP -> 'has' | 'fondle' | 'bring' | 'remind' | 'reward' | 'find' | 'help' |
 
 % q2.txt
 VPastIntrans_2 -> 'fondled' | 'been' | 'arrived' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given'
-VPast_NP_2 -> 'had' | 'fondled' | 'brought' | 'reminded' | 'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given'
+% VPast_NP_2 -> 'had' | 'fondled' | 'brought' | 'reminded' | 'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given'
 VingIntrans -> 'fondling' | 'being' | 'arriving' | 'helping' | 'leaving' | 'shooting' | 'eating' | 'telling' | 'jumping' | 'believing' | 'winning' | 'seeing' | 'wanting' | 'helping' | 'demanding' | 'giving'
 
 % aux.txt
 Modal -> 'can' | 'may' | 'could' | 'should' | 'shall' | 'might' | 'must' | 'would' | 'will'
+
 Perfect -> 'have' | 'has' | 'had'
-Progressive -> 'be' | 'been' | 'being'
-Passive -> 'be' | 'been' | 'being'
+Perfect_mod -> 'have'
+
+Progressive -> 'is' | 'am' | 'was' | 'were'
+Progressive_mod -> 'be'
+Progressive_perf -> 'been'
+
+Passive -> 'was'
+Passive_mod -> 'be'
+Passive_perf -> 'been'
+Passive_prog -> 'being'

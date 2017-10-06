@@ -30,7 +30,16 @@ PVP -> P VPresIntransP | P VPres_NPP
 DetP -> Detsg Nsg | Detsgv Nsgv | Detpl Npl
 
 % for q2
-PassP -> Passive VPast_NP_2
-ProgP -> Progressive VingIntrans | Progressive PassP
-PerfP -> Perfect VPastIntrans_2 | Perfect ProgP | Perfect PassP
-ModalP -> Modal VPresIntrans | Modal PerfP | Modal ProgP | Modal PassP
+PassP -> Passive VPastIntrans_2
+PassP_mod -> Passive_mod VPastIntrans_2
+PassP_perf -> Passive_perf VPastIntrans_2
+PassP_prog -> Passive_prog VPastIntrans_2
+
+ProgP -> Progressive VingIntrans | Progressive PassP_prog
+ProgP_mod -> Progressive_mod VingIntrans | Progressive_mod PassP_prog
+ProgP_perf -> Progressive_perf VingIntrans | Passive_perf PassP_prog
+
+PerfP -> Perfect VPastIntrans_2 | Perfect ProgP_perf | Perfect PassP_perf
+PerfP_mod -> Perfect_mod VPastIntrans_2 | Perfect_mod ProgP_perf | Perfect_mod PassP_perf
+
+ModalP -> Modal VPresIntrans | Modal PerfP_mod | Modal ProgP_mod | Modal PassP_mod
