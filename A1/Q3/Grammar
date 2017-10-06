@@ -1,0 +1,49 @@
+% Xin Wen, wenxin6 1000442666
+
+S -> NP VP | S_2
+S_2 -> NP AuxVP
+
+VP -> VPastIntransP | VPast_NPP | VPast_RelP | VPast_RelP_NP
+NP -> DetP | AdjPP | AdjPP PP | DetP PP | Npl | Npl PP | NPrp | NProSub | Nuncount
+NP_Obj -> DetP | AdjPP | AdjPP PP | DetP PP | Npl | Npl PP | NPrp | NProObj | Nuncount
+AuxVP -> PassP | ProgP | PerfP | ModalP
+
+VPast_NPP -> VPast_NP_p NP_Obj | VPast_NP_p NP_Obj Conjugation S | VPast_NP_p NP_Obj PP | VPast_NP_p NP_Obj PVP
+VPast_NP_p -> VPast_NP | Adv VPast_NP | VPast_NP Adv | Adv VPast_NP Adv
+
+VPres_NPP -> VPres_NP NP_Obj | VPres_NP NP_Obj PP | VPres_NP NP_Obj PVP
+VPres_NP_p -> VPres_NP_p | Adv VPres_NP_p | VPres_NP Adv | Adv VPres_NP Adv
+
+VPastIntransP -> VPastIntrans_p | VPastIntrans_p PP | VPastIntrans_p NP_Obj Conjugation S | VPastIntrans_conj_p Conjugation S | VPastIntrans_PrepV_p PVP
+VPastIntrans_p -> VPastIntrans | Adv VPastIntrans | VPastIntrans Adv | Adv VPastIntrans Adv
+VPastIntrans_PrepV_p -> VPastIntrans_PrepV | Adv VPastIntrans_PrepV | VPastIntrans_PrepV Adv | Adv VPastIntrans_PrepV Adv 
+VPastIntrans_conj_p -> VPastIntrans_conj | Adv VPastIntrans_conj | VPastIntrans_conj Adv | Adv VPastIntrans_conj Adv
+
+VPresIntransP -> VPresIntrans_p | VPresIntrans_p PP | VPresIntrans_p PVP
+VPresIntrans_p -> VPresIntrans | Adv VPresIntrans | VPresIntrans Adv  | Adv VPresIntrans Adv
+
+VPast_RelP -> VPast_Rel RelSub S | Adv VPast_Rel RelSub S | VPast_Rel Adv RelSub S | Adv VPast_Rel Adv RelSub S
+VPast_RelP_NP -> VPast_Rel_NP NP_Obj RelSub S | Adv VPast_Rel_NP NP_Obj RelSub S | VPast_Rel_NP Adv NP_Obj RelSub S | Adv VPast_Rel_NP Adv NP RelSub S
+
+AdjP -> Adj | Adj AdjP
+AdjPP -> Detsg AdjP Nsg | Detsgv AdjP Nsgv | Detpl AdjP Npl | AdjP Npl | Adj Nuncount
+
+PP -> P NP
+PVP -> P VPresIntransP | P VPres_NPP
+
+DetP -> Detsg Nsg | Detsgv Nsgv | Detpl Npl
+
+% for q2
+PassP -> Passive VPastIntrans_2
+PassP_mod -> Passive_mod VPastIntrans_2
+PassP_perf -> Passive_perf VPastIntrans_2
+PassP_prog -> Passive_prog VPastIntrans_2
+
+ProgP -> Progressive VingIntrans | Progressive PassP_prog
+ProgP_mod -> Progressive_mod VingIntrans | Progressive_mod PassP_prog
+ProgP_perf -> Progressive_perf VingIntrans | Passive_perf PassP_prog
+
+PerfP -> Perfect VPastIntrans_2 | Perfect ProgP_perf | Perfect PassP_perf
+PerfP_mod -> Perfect_mod VPastIntrans_2 | Perfect_mod ProgP_perf | Perfect_mod PassP_perf
+
+ModalP -> Modal VPresIntrans | Modal PerfP_mod | Modal ProgP_mod | Modal PassP_mod

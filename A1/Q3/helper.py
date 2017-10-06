@@ -27,7 +27,7 @@ def output(name, grammar):
 
 def autotest(name, grammar):
     passed = False
-    c = 0
+    c = True
     with open(name, 'r') as f:
         for line in f:
             if "%" not in line:
@@ -37,29 +37,31 @@ def autotest(name, grammar):
                     passed = True
                     if name == "Negative" or name == "Undergen":
                         print("FAILURE: " + line + "\n")
+                        c = False
                 if not passed:
                     if name == "Positive" or name == "Overgen":
                         print('FAILURE: ' + line + "\n")
-                    c += 1
+                        c = False
                 passed = False
-    if (name == "Positive" or name == "Overgen") and c == 0:
+    if (name == "Positive" or name == "Overgen") and c:
         print('All Passed\n')
-    elif (name == "Negative" or name == "Undergen") and c > 0:
+    elif (name == "Negative" or name == "Undergen") and c:
         print('All Failed\n')
 
-# def test(grammar):
-#     t = input("type test: ")
-#     passed = False
-#     while t != "quit":
-#         s = nltk.tokenize.word_tokenize(test)
+def manutest(grammar):
+    test = input("type test: ")
+    passed = False
 
-#         parser = nltk.parse.BottomUpChartParser(grammar)
+    while test != "q":
+        s = nltk.tokenize.word_tokenize(test)
 
-#         for t in parser.parse_all(s):
-#             print(t)
-#             passed = True
-    
-#         if not passed:
-#             print("No Parses")
-#         passed = False
-#         t = input("type test: ")
+        parser = nltk.parse.BottomUpChartParser(grammar)
+
+        for t in parser.parse_all(s):
+            print(t)
+            passed = True
+        
+        if not passed:
+            print("No Parses")
+        passed = False
+        test = input("type test: ")

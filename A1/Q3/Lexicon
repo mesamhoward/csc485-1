@@ -9,7 +9,7 @@ Adj -> 'handsome' | 'tall' | 'long' | 'soft'
 
 % conjugation.txt
 RelSub -> 'that'
-Conjugation -> 'before' | 'after' | 'that'
+Conjugation -> 'before' | 'after'
 
 % det.txt
 Detsg -> 'a' | 'the' | 'my' | 'her' | 'his' | 'their' | 'our' | 'your' | 'this' | 'that'
@@ -29,15 +29,18 @@ Nuncount -> 'fur' | 'rutabaga' | 'cheese' | 'help' | 'eggplant'
 
 % verb.txt
 VPastIntrans -> 'fondled' | 'was' | 'arrived' | 'helped' | 'left' | 'shot' | 'ate' | 'told' | 'jumped' | 'believed' | 'won' | 'saw' | 'wanted' | 'helped' | 'demanded' | 'gave'
-VPastIntrans_PrepV -> 'was' | 'arrived' | 'helped' | 'left' | 'jumped' | 'wanted' | 'demanded'
+VPastIntrans_PrepV -> 'was' | 'fondled' | 'ate' | 'arrived' | 'helped' | 'left' | 'jumped' | 'wanted' | 'demanded'
+VPastIntrans_conj -> 'ate' | 'arrived' | 'helped' | 'left' | 'shot' | 'jumped' | 'won'
+
 VPast_NP -> 'had' | 'fondled' | 'brought' | 'reminded' | 'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'ate' | 'told' | 'jumped' | 'believed' | 'won' | 'saw' | 'wanted' | 'helped' | 'demanded' | 'gave'
 VPast_Rel -> 'found' | 'believed' | 'saw' | 'demanded'
+VPast_Rel_NP -> 'reminded' | 'told' | 'believed' | 'demanded'
+
 VPresIntrans -> 'fondle' | 'be' | 'arrive' | 'help' | 'leave' | 'shoot' | 'eat' | 'tell' | 'jump' | 'believe' | 'win' | 'see' | 'want' | 'help' | 'demand' | 'give'
 VPres_NP -> 'has' | 'fondle' | 'bring' | 'remind' | 'reward' | 'find' | 'help' | 'leave' | 'shoot' | 'eat' | 'tell' | 'jump' | 'believe' | 'win' | 'see' | 'want' | 'help' | 'demand' | 'give'
 
 % q2.txt
 VPastIntrans_2 -> 'fondled' | 'been' | 'arrived' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given'
-% VPast_NP_2 -> 'had' | 'fondled' | 'brought' | 'reminded' | 'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given'
 VingIntrans -> 'fondling' | 'being' | 'arriving' | 'helping' | 'leaving' | 'shooting' | 'eating' | 'telling' | 'jumping' | 'believing' | 'winning' | 'seeing' | 'wanting' | 'helping' | 'demanding' | 'giving'
 
 % aux.txt
