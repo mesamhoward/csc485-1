@@ -6,8 +6,8 @@ s sub [].
 np sub [].
 vp sub [].
 
-john - - -> np.
-walked - - -> vp.
+john ---> np.
+walked ---> vp.
 
 srule rule
 s
