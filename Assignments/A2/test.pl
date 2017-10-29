@@ -1,4 +1,4 @@
-index sub [] intro [num:number].
+iindex sub [] intro [num:number].
 	number sub [sg, pl].
 		sg sub [].
 		pl sub [].
@@ -23,7 +23,7 @@ fed ---> v.
 srule rule
 s
 ===>
-cat> (np, head:(index:index),
+cat> n,
 cat> v.
 
 nrule rule
