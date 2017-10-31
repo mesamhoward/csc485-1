@@ -29,5 +29,3 @@ s
 ===>
 cat> (np,index:Index),
 cat> (vp,subj:index:Index).
-
-

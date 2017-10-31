@@ -1,0 +1,19 @@
+
+i. Sleep
+        Experiencer: teacher
+    Persuaded
+        Agent:
+        Theme
+        Beneficiary
+
+ii. Sleep
+        Experiencer: student
+    Promised
+        Agent
+        Theme
+        Beneficiary
+iii. Sleep
+        Experiencer: teacher
+    Expected
+        Agent
+        Theme

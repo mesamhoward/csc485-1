@@ -253,36 +253,6 @@ him --->
   (@ empty_non_loc),
   qstore:e_set.
 
-% Expletive Pronouns
-% -----------------------------------------------------------------------------
-
-there --->
-  word,
-  synsem:loc:(cat:(head:(noun,
-                           mod:none),
-                     subcat:[]),
-              cont:(ppro,
-                    index:(there,
-                           per:third),
-                    restr:e_set),
-              conx:backgr:e_set),
-  (@ empty_non_loc),
-  qstore:e_set.
-
-it --->
-  word,
-  synsem:loc:(cat:(head:(noun,
-                           mod:none),
-                     subcat:[]),
-              cont:(ppro,
-                    index:(it,
-                           per:third,
-                           num:sing),
-                    restr:e_set),
-              conx:backgr:e_set),
-  (@ empty_non_loc),
-  qstore:e_set.
-
 % Common Nouns
 % -----------------------------------------------------------------------------
 
@@ -533,54 +503,6 @@ passive lex_rule
 % another passive_"agent" rule is not necessary for subcat<s,np>, since the
 %  passive rule can apply to the it-extraposed form
 
-% It-Extraposition
-% ----------------------------------------------------------------------------
-
-% regulars: lexical rule
-it_extraposition lex_rule
-  (word,
-   synsem:(loc:(cat:(head:(Head,vform:bse),
-                       subcat:Sub,
-                       marking:Mark),
-                cont:Cont,
-                conx:Conx),
-           non_loc:NL),
-   qstore:QStore,
-   qretr:QRetr)
-  **>
-  (word,
-   synsem:(loc:(cat:(head:Head,
-                       subcat:ExpSub,
-                       marking:Mark),
-                cont:Cont,
-                conx:Conx),
-           non_loc:NL),
-   qstore:QStore,
-   qretr:QRetr)
-
-  if (append(Prev,[(S,@ s(_),loc:cat:marking:comp)|Rest],Sub),
-      append(Rest,[S],NewRest),
-      append(Prev,[(@ np(it))|NewRest],ExpSub))
-  morphs
-    X becomes X.
-
-% exceptions: lexical entries
-
-seems --->     % no sentential subjects allowed
-  word,
-  synsem:loc:(cat:(head:(verb,
-                           mod:none,
-                           vform:fin,
-                           aux:minus,
-                           inv:minus),
-                     subcat:[(@ np(it)),
-                             (@ s(SCont))],
-                     marking:unmarked),
-              cont:SCont,
-              conx:backgr:e_set),
-  (@ empty_non_loc),
-  qstore:e_set.
-
 % Subject Extraction
 %----------------------------------------------------------------------------
 subject_extraction lex_rule
@@ -633,44 +555,12 @@ schema1 rule
 ===>
 cat> (SubjDtr,non_word,synsem:SubjSyn),   % n.b. only one complement permitted
 cat> (HeadDtr,phrase),
-goal> (head_feature_principle(Mother,HeadDtr),
-       inv_minus_principle(Mother),
-       subcat_principle(Mother,HeadDtr,[SubjSyn]),
-       marking_principle(Mother,HeadDtr),
-       spec_principle(SubjDtr,HeadDtr),
-       semantics_principle(Mother,HeadDtr,[SubjDtr]),
-%      universal_trace_principle: obviated here by parochial
-       parochial_trace_principle(SubjDtr),
-%      subject_condition: not necessary - sch2,3,or word_promotion_1 did
-       nonlocal_feature_principle(Mother,HeadDtr,[SubjDtr]),
-       single_rel_constraint(Mother),
-       clausal_rel_prohibition(Mother),
-       relative_uniqueness_principle(Mother,[SubjDtr,HeadDtr]),
-       conx_consistency_principle(Mother,[SubjDtr,HeadDtr]),
-       deictic_cindices_principle(Mother,[SubjDtr,HeadDtr])).
-
 
 schema2 rule
 (Mother,phrase,synsem:loc:cat:subcat:[SubjSyn])
 ===>
 cat> (HeadDtr,word,synsem:loc:cat:subcat:[SubjSyn|CompSyns]),
-goal> synsems_to_non_words(CompSyns,Comps),
 cats> (Comps,hd:FirstComp),
-goal> (head_feature_principle(Mother,HeadDtr),
-       inv_minus_principle(Mother),
-       subcat_principle(Mother,HeadDtr,CompSyns),
-       marking_principle(Mother,HeadDtr),
-       spec_principle(FirstComp,HeadDtr),
-       semantics_principle(Mother,HeadDtr,Comps),
-       universal_trace_principle(Comps,HeadDtr),
-%      parochial_trace_principle: subject not bound yet
-       subject_condition(CompSyns,SubjSyn),
-       nonlocal_feature_principle(Mother,HeadDtr,Comps),
-       single_rel_constraint(Mother),
-%      clausal_rel_prohibition: not necessary - mother has non-empty subcat
-       relative_uniqueness_principle(Mother,[HeadDtr|Comps]),
-       conx_consistency_principle(Mother,[HeadDtr|Comps]),
-       deictic_cindices_principle(Mother,[HeadDtr|Comps])).
 
 schema3 rule
 (Mother,phrase,synsem:loc:cat:subcat:[])
@@ -678,23 +568,7 @@ schema3 rule
 cat> (HeadDtr,word,synsem:(loc:cat:subcat:(SCompSyns,
                                              [SubjSyn|CompSyns]),
                            non_loc:to_bind:slash:e_set)),
-goal> synsems_to_non_words(SCompSyns,SComps),
 cats> (SComps,[Subj|Comps]),
-goal> (head_feature_principle(Mother,HeadDtr),
-       inv_plus_principle(Mother),
-       subcat_principle(Mother,HeadDtr,SCompSyns),
-       marking_principle(Mother,HeadDtr),
-       spec_principle(Subj,HeadDtr),
-       semantics_principle(Mother,HeadDtr,SComps),
-       universal_trace_principle(Comps,HeadDtr), % UTP on FirstComp 
-       parochial_trace_principle(Subj),          %  obviated by parochial
-       subject_condition(CompSyns,SubjSyn),
-       nonlocal_feature_principle(Mother,HeadDtr,SComps),
-       single_rel_constraint(Mother),
-       clausal_rel_prohibition(Mother),
-       relative_uniqueness_principle(Mother,[HeadDtr|SComps]),
-       conx_consistency_principle(Mother,[HeadDtr|SComps]),
-       deictic_cindices_principle(Mother,[HeadDtr|SComps])).
 
 schema4 rule
 (Mother,phrase)
