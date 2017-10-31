@@ -1,19 +1,22 @@
 
-i. Sleep
+i. The student persuaded the teacher to sleep
+    Sleep
         Experiencer: teacher
     Persuaded
         Agent:
-        Theme
-        Beneficiary
+        Theme:
+        Beneficiary: student
 
-ii. Sleep
+ii. The student promised the teacher to sleep
+    Sleep
         Experiencer: student
     Promised
-        Agent
-        Theme
-        Beneficiary
-iii. Sleep
+        Agent: 
+        Theme: 
+        Beneficiary: teacher
+iii. The student expected the teacher to sleep 
+    Sleep
         Experiencer: teacher
     Expected
-        Agent
-        Theme
+        Agent: 
+        Theme: 
