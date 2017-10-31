@@ -24,8 +24,8 @@ np sub [] intro [head:n].
 she ---> (np, head:(index:(pro:nom))).
 fed ---> v.
 the ---> det.
-dog ---> (np,head:(index:(pro:nonpro, num:sg))).
-puppies ---> (np,head:(index:(pro:nonpro, num:pl))).
+dog ---> (n, index:(pro:nonpro, num:sg)).
+puppies ---> (n, index:(pro:nonpro, num:pl)).
 him ---> (np, head:(index:(pro:acc))).
 with ---> p.
 
@@ -33,42 +33,40 @@ with ---> p.
 srule rule
 s
 ===>
-cat> (np, head:(index:(pro:(nom;Nonpro)))),
-cat> v.
-%cat> np,
-%cat> vp.
+cat> (np, head:(index:(pro:(nom;nonpro)))),
+cat> vp.
 
 vprule rule
 vp
 ===>
 cat> v,
-cat> np.
+cat> (np, head:(index:(pro:(acc;nonpro)))).
 
 pprule rule
 pp
 ===>
 cat> p,
-cat> np.
+cat> (np, head:(index:(pro:(acc;nonpro)))).
 
 nrule rule
-(np, head:(index:(pro:Nonpro)))
+(np, head:(index:(pro:nonpro)))
 ===>
 cat> (n, index:(num:pl)).
 
 n_pprule rule
-np
+(np, head:(index:(pro:(acc;nonpro))))
 ===>
 cat> (n, index:(num:pl)),
 cat> pp.
 
 detrule rule
-(np, head:(index:(pro:Nonpro)))
+(np, head:(index:(pro:nonpro)))
 ===>
 cat> det,
-cat> (n, index:(pro:Nonpro)).
+cat> (n, index:(pro:nonpro)).
 
 det_pprule rule
-np
+(np, head:(index:(pro:nonpro)))
 ===>
 cat> det,
 cat> (n, index:(pro:nonpro)),
