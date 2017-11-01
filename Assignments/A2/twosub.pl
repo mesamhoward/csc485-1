@@ -1,13 +1,13 @@
 bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 
-        % parts of speech
+    % parts of speech
         pos sub [n,p,v,det,toinf].
                 toinf sub [].   % infinitival to
                 n sub [].
                 v sub [].
                 p sub [].
                 det sub [].
-        % phrasal categories
+    % phrasal categories
         cat sub [vproj,np].
                 vproj sub [inf_clause,s,vp] intro [mood:mood].
                         s intro [mood:indicative].
@@ -18,7 +18,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
         verbal sub [v,vproj] intro [vsem:n_sem].
         nominal sub [n,np] intro [nsem:v_sem].
 
-        % mood and tense for verbs
+     % mood and tense for verbs
         tense sub [past, present].
                 past sub [].
                 present sub [].
@@ -26,7 +26,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 indicative intro [tense:tense].
                 infinitive sub [].
 
-        % semantics for verbs and nouns
+    % semantics for verbs and nouns
         sem sub [v_sem, n_sem].
 
                 % semantics for verbs
@@ -47,18 +47,23 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 % Lexicon
 
 %nouns
-student
-teacher
+student ---> n
+teacher ---> n
 
 %det
-the
+the ---> det
 
 %verbs
-preferred
-persuaded
-promised
-expected
-sleep
+prefer ---> v
+preferred ---> v
+persuade ---> v
+persuaded ---> v
+promise ---> v
+promised ---> v
+expect ---> v
+expected ---> v
+sleep ---> v
+slept ---> v
 
 %toinf
-to
+to ---> toinf
