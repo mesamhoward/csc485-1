@@ -73,11 +73,14 @@ to ---> toinf.
 
 %rules
 <<<<<<< HEAD
+<<<<<<< HEAD
 nrule rules
 np
 ===>
 cat> (n, num:pl).
 
+=======
+>>>>>>> parent of 8ba631b... fixed det rule
 =======
 >>>>>>> parent of 8ba631b... fixed det rule
 detrule rules
