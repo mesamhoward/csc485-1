@@ -47,23 +47,23 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 % Lexicon
 
 %nouns
-student ---> n
-teacher ---> n
+student ---> n.
+teacher ---> n.
 
 %det
-the ---> det
+the ---> det.
 
 %verbs
-prefer ---> v
-preferred ---> v
-persuade ---> v
-persuaded ---> v
-promise ---> v
-promised ---> v
-expect ---> v
-expected ---> v
-sleep ---> v
-slept ---> v
+prefer ---> v.
+preferred ---> v.
+persuade ---> v.
+persuaded ---> v.
+promise ---> v.
+promised ---> v.
+expect ---> v.
+expected ---> v.
+sleep ---> v.
+slept ---> v.
 
 %toinf
-to ---> toinf
+to ---> toinf.
