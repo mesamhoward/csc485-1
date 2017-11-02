@@ -72,11 +72,14 @@ slept ---> v.
 to ---> toinf.
 
 %rules
+<<<<<<< HEAD
 nrule rules
 np
 ===>
 cat> (n, num:pl).
 
+=======
+>>>>>>> parent of 8ba631b... fixed det rule
 detrule rules
 np
 ===>
