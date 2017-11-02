@@ -70,7 +70,6 @@ slept ---> v.
 to ---> toinf.
 
 %rules
-%sigh
 detrule rules
 np
 ===>
