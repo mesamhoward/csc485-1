@@ -2,11 +2,12 @@
 :- discontiguous sub/2,intro/2.
 
 bot sub [mood, tense, sem, cat, pos, verbal, nominal].
-
+	index sub [] intro [num:number].
+		number sub [sg, pl].
         % parts of speech
         pos sub [n,p,v,det,toinf].
                 toinf sub [].   % infinitival to
-                n sub [].
+                n sub [] intro [index:index].
                 v sub [].
                 p sub [].
                 det sub [].
@@ -49,11 +50,11 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 % Lexicon
 
 %nouns
-student ---> n.
-students ---> n.
+student ---> (n, index:(num:sg)).
+students ---> (n, index:(num:pl)).
 
-teacher ---> n.
-teacher ---> n.
+teacher ---> (n, index:(num:sg)).
+teachers ---> (n, index:(num:pl)).
 
 %det
 the ---> det.
@@ -74,8 +75,19 @@ slept ---> v.
 to ---> toinf.
 
 %rules
-detrule rules
+srule rule
+s
+===>
+cat> np,
+cat> v.
+
+detrule rule
 np
 ===>
 cat> det,
 cat> n.
+
+nprule rule
+np
+===>
+cat> (n, index:(num:pl))
