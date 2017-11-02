@@ -1,3 +1,4 @@
+%Xin Serena Wen, wenxin6, 1000442666
 index sub [] intro [pro:pronoun, num:number].
 	pronoun sub [nom, acc, nonpro].
 		nom sub [].
@@ -20,7 +21,7 @@ vp sub [].
 n sub [] intro [index:index].
 np sub [] intro [head:n].
 
-%% Lexicon
+%%Lexicon
 she ---> (np, head:(index:(pro:nom))).
 fed ---> v.
 the ---> det.
@@ -36,12 +37,14 @@ s
 cat> (np, head:(index:(pro:(nom;nonpro)))),
 cat> vp.
 
+%VP
 vprule rule
 vp
 ===>
 cat> v,
 cat> (np, head:(index:(pro:(acc;nonpro)))).
 
+%PP
 pprule rule
 pp
 ===>
@@ -53,12 +56,14 @@ nrule rule
 ===>
 cat> (n, index:(num:pl)).
 
+%Adding PP to Noun
 n_pprule rule
 (np, head:(index:(pro:(acc;nonpro))))
 ===>
 cat> (n, index:(num:pl)),
 cat> pp.
 
+%%Adding det
 detrule rule
 (np, head:(index:(pro:nonpro)))
 ===>

@@ -1,3 +1,4 @@
+%Xin Serena Wen, wenxin6, 1000442666
 cat sub [s, npnom, vp, npacc, np, pp, n].          
 
 s sub [].
@@ -20,6 +21,7 @@ npl sub [].
 
 det sub [].
 
+%Lexicon
 she ---> pronom.
 fed ---> v.
 the ---> det.
@@ -28,6 +30,7 @@ puppies ---> npl.
 him ---> proacc.
 with ---> p.
 
+%Rules
 srule rule
 s
 ===>
@@ -46,7 +49,7 @@ pp
 cat> p,
 cat> npacc.
 
-%% NPnom [2]
+%NPnom [2]
 npnom_nprule rule
 npnom
 ===>
@@ -57,7 +60,7 @@ npnom
 ===>
 cat> pronom.
 
-%% NPacc [2]
+%NPacc [2]
 npacc_nprule rule
 npacc
 ===>
@@ -68,7 +71,9 @@ npacc
 ===>
 cat> proacc.
 
-%% NP [4]
+%NP [4]
+
+%dealing with Det
 np_detrule rule
 np
 ===>
@@ -82,18 +87,20 @@ cat> det,
 cat> n,
 cat> pp.
 
+%pointing directly to npl
 np_nplrule rule
 np
 ===>
 cat> npl.
 
+%deling with prepostions and plurality
 np_npl_pprule rule
 np
 ===>
 cat> npl,
 cat> pp.
 
-%% N [2]
+%dealing plurality of nouns [2]
 np_sgrule rule
 n
 ===>
