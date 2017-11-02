@@ -3,7 +3,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
     % parts of speech
         pos sub [n,p,v,det,toinf].
                 toinf sub [].   % infinitival to
-                n sub [].
+                n sub [] intro [num: number].
+                        number sub [sg, pl].
                 v sub [].
                 p sub [].
                 det sub [].
@@ -43,11 +44,14 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 n_sem sub [student, teacher].
                         student sub [].
                         teacher sub [].
-%Lexicon
+% Lexicon
 
 %nouns
-student ---> n.
-teacher ---> n.
+student ---> (n, num:sg).
+students ---> (n, num:pl).
+
+teacher ---> (n, num:sg).
+teacher ---> (n, num:pl)
 
 %det
 the ---> det.
@@ -68,12 +72,12 @@ slept ---> v.
 to ---> toinf.
 
 %rules
-srule rule
-s
+nrule rules
+np
 ===>
-cat> np.
+cat> (n, num:pl).
 
-detrule rule
+detrule rules
 np
 ===>
 cat> det,
