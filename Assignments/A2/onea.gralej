@@ -1,0 +1,81 @@
+<'she fed the dog with the puppies with puppies with him'
+{ :'srule:she fed the dog with the puppies with puppies with him'
+    s
+    { :'npnom_prorule:she'
+        npnom
+        { :'lexicon:she'
+            pronom
+        }
+    }
+    { :'vprule:fed the dog with the puppies with puppies with him'
+        vp
+        { :'lexicon:fed'
+            v
+        }
+        { :'npacc_nprule:the dog with the puppies with puppies with him'
+            npacc
+            { :'np_det_pprule:the dog with the puppies with puppies with him'
+                np
+                { :'lexicon:the'
+                    det
+                }
+                { :'np_sgrule:dog'
+                    n
+                    { :'lexicon:dog'
+                        nsg
+                    }
+                }
+                { :'pprule:with the puppies with puppies with him'
+                    pp
+                    { :'lexicon:with'
+                        p
+                    }
+                    { :'npacc_nprule:the puppies with puppies with him'
+                        npacc
+                        { :'np_det_pprule:the puppies with puppies with him'
+                            np
+                            { :'lexicon:the'
+                                det
+                            }
+                            { :'np_plrule:puppies'
+                                n
+                                { :'lexicon:puppies'
+                                    npl
+                                }
+                            }
+                            { :'pprule:with puppies with him'
+                                pp
+                                { :'lexicon:with'
+                                    p
+                                }
+                                { :'npacc_nprule:puppies with him'
+                                    npacc
+                                    { :'np_npl_pprule:puppies with him'
+                                        np
+                                        { :'lexicon:puppies'
+                                            npl
+                                        }
+                                        { :'pprule:with him'
+                                            pp
+                                            { :'lexicon:with'
+                                                p
+                                            }
+                                            { :'npacc_prorule:him'
+                                                npacc
+                                                { :'lexicon:him'
+                                                    proacc
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+>
+
