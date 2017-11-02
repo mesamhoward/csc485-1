@@ -76,3 +76,5 @@ det_pprule rule
 cat> det,
 cat> (n, index:(pro:nonpro)),
 cat> pp.
+
+got
