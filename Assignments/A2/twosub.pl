@@ -70,12 +70,12 @@ slept ---> v.
 to ---> toinf.
 
 %rules
-nrule rules
+nrule rule
 np
 ===>
 cat> n.
 
-detrule rules
+detrule rule
 np
 ===>
 cat> det,
