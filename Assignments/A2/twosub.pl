@@ -43,7 +43,6 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 n_sem sub [student, teacher].
                         student sub [].
                         teacher sub [].
-
 % Lexicon
 
 %nouns
@@ -67,3 +66,10 @@ slept ---> v.
 
 %toinf
 to ---> toinf.
+
+%rules
+detrule rules
+np
+===>
+cat> det,
+cat> n.
