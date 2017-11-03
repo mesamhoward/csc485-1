@@ -74,7 +74,7 @@ expect ---> v.
 expected ---> (vp, mood:(indicative, tense:past), trans:trans).
 
 sleep ---> v.
-slept ---> (vp, mood:(indicative, tense:past), trans:trans).
+slept ---> (vp, mood:(indicative, tense:past), trans:intrans).
 
 %toinf
 to ---> toinf.
