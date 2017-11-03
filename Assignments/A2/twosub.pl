@@ -13,11 +13,11 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 det sub [].
         % phrasal categories
         cat sub [vproj,np].
-                vproj sub [inf_clause,s,vp] intro [mood:mood, trans:transitivity].
+                vproj sub [inf_clause,s,vp] intro [mood:mood].
                         s intro [mood:indicative].
                         inf_clause intro [mood:infinitive].
-                        vp intro [mood:indicative].
-			transitivity sub [trans, intrans].
+                        vp intro [mood:indicative, trans:transitivity].
+				transitivity sub [trans, intrans].
                 np sub [].
 
         verbal sub [v,vproj] intro [vsem:n_sem].
@@ -73,7 +73,7 @@ promised ---> (vp, mood:(indicative, tense:past), trans:trans).
 expect ---> v.
 expected ---> (vp, mood:(indicative, tense:past), trans:trans).
 
-sleep ---> (vp, mood:(infinitive, tense:present), trans:intrans).
+sleep ---> v.
 slept ---> (vp, mood:(indicative, tense:past), trans:intrans).
 
 %toinf
@@ -82,7 +82,8 @@ to ---> toinf.
 %rules
 %sentence rules
 
-%%transitvity sentense
+%%transitvity sentence
+%%students preferred the teacher
 stransrule rule
 s
 ===>
@@ -90,6 +91,7 @@ cat> np,
 cat> (vp, mood:(indicative, tense:past), trans:trans),
 cat> np.
 
+%%students slept
 sintrans rule
 s
 ===>
@@ -104,6 +106,7 @@ cat> np,
 cat> (inf_clause, mood:(infinitive, tense:present)).
 
 %%Imperative sentence
+%%preffered the teacher
 simprule rule
 s
 ===>
@@ -111,6 +114,13 @@ cat> (vp, mood:(indicative, tense:past), trans:trans),
 cat> np.
 
 %Verb rules
+%%preffered to sleep
+vprojgaprule rule
+vproj
+===>
+cat> (vp, mood:(indicative, tense:past), trans:trans),
+cat> inf_clause.
+
 vprojrule rule
 vproj
 ===>
@@ -130,7 +140,7 @@ np
 cat> (n, index:(num:pl)).
 
 infrule rule
-(inf_clause, mood:(infinitive, tense:present))
+inf_clause
 ===>
 cat> toinf,
-cat> (vp, mood:(infinitive, tense:present), trans:intrans).
+cat> v.
