@@ -62,19 +62,19 @@ the ---> det.
 
 %verbs
 prefer ---> v.
-preferred ---> v.
+preferred ---> (vp, mood:(indicative, tense:past), trans:trans).
 
 persuade ---> v.
-persuaded ---> v.
+persuaded ---> (vp, mood:(indicative, tense:past), trans:trans).
 
 promise ---> v.
-promised ---> v.
+promised ---> (vp, mood:(indicative, tense:past), trans:trans).
 
 expect ---> v.
-expected ---> v.
+expected ---> (vp, mood:(indicative, tense:past), trans:trans).
 
 sleep ---> v.
-slept ---> (vp, mood:(indicative, tense:past), trans:intrans).
+slept ---> (vp, mood:(indicative, tense:past), trans:trans).
 
 %toinf
 to ---> toinf.
@@ -92,7 +92,7 @@ strans rule
 s
 ===>
 cat> np,
-cat> (vp, mood:(indicative, tense:past)).
+cat> (vp, mood:(indicative, tense:past), trans:intrans).
 
 %%Imperative sentence
 simprule rule
