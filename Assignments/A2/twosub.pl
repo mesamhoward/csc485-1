@@ -90,4 +90,10 @@ cat> n.
 nprule rule
 np
 ===>
-cat> (n, index:(num:pl))
+cat> (n, index:(num:pl)).
+
+infrule rule
+inf_clause
+===>
+cat> toinf,
+cat> v.
