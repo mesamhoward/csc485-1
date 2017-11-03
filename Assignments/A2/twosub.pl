@@ -73,7 +73,7 @@ promised ---> (vp, mood:(indicative, tense:past), trans:trans).
 expect ---> v.
 expected ---> (vp, mood:(indicative, tense:past), trans:trans).
 
-sleep ---> v.
+sleep ---> (vp, mood:(infinitive, tense:present), trans:intrans).
 slept ---> (vp, mood:(indicative, tense:past), trans:intrans).
 
 %toinf
@@ -81,27 +81,41 @@ to ---> toinf.
 
 %rules
 %sentence rules
-%%declarative sentence
-sdecrule rule
+
+%%transitvity sentense
+stransrule rule
 s
 ===>
 cat> np,
-cat> vp.
+cat> (vp, mood:(indicative, tense:past), trans:trans),
+cat> np.
 
-strans rule
+sintrans rule
 s
 ===>
 cat> np,
 cat> (vp, mood:(indicative, tense:past), trans:intrans).
 
+%%Declartive sentence
+sdecrule rule
+s
+===>
+cat> np,
+cat> (inf_clause, mood:(infinitive, tense:present)).
+
 %%Imperative sentence
 simprule rule
 s
 ===>
-cat> v,
+cat> (vp, mood:(indicative, tense:past), trans:trans),
 cat> np.
 
 %Verb rules
+vprojrule rule
+vproj
+===>
+cat> (vp, mood:(indicative, tense:past), trans:trans),
+cat> inf_clause.
 
 %Noun rules
 detrule rule
@@ -111,12 +125,12 @@ cat> det,
 cat> n.
 
 nprule rule
-n
+np
 ===>
 cat> (n, index:(num:pl)).
 
 infrule rule
-inf_clause
+(inf_clause, mood:(infinitive, tense:present))
 ===>
 cat> toinf,
-cat> v.
+cat> (vp, mood:(infinitive, tense:present), trans:intrans).
