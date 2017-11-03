@@ -13,10 +13,11 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 det sub [].
         % phrasal categories
         cat sub [vproj,np].
-                vproj sub [inf_clause,s,vp] intro [mood:mood].
+                vproj sub [inf_clause,s,vp] intro [mood:mood, trans:transitivity].
                         s intro [mood:indicative].
                         inf_clause intro [mood:infinitive].
                         vp intro [mood:indicative].
+			transitivity sub [trans, intrans].
                 np sub [].
 
         verbal sub [v,vproj] intro [vsem:n_sem].
@@ -62,33 +63,47 @@ the ---> det.
 %verbs
 prefer ---> v.
 preferred ---> v.
+
 persuade ---> v.
 persuaded ---> v.
+
 promise ---> v.
 promised ---> v.
+
 expect ---> v.
 expected ---> v.
+
 sleep ---> v.
-slept ---> v.
+slept ---> (vp, mood:(indicative, tense:past)).
 
 %toinf
 to ---> toinf.
 
 %rules
-%declarative sentence
+%sentence rules
+%%declarative sentence
 sdecrule rule
 s
 ===>
 cat> np,
-cat> v.
+cat> vp.
 
-%Imperative sentence
-simprule rule
+strans rule
 s
+===>
+cat> np,
+cat> (vp, mood:(indicative, tense:past)).
+
+%%Imperative sentence
+simprule rule
+si
 ===>
 cat> v,
 cat> np.
 
+%Verb rules
+
+%Noun rules
 detrule rule
 np
 ===>
@@ -96,7 +111,7 @@ cat> det,
 cat> n.
 
 nprule rule
-np
+ne
 ===>
 cat> (n, index:(num:pl)).
 
