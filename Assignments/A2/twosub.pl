@@ -74,7 +74,7 @@ expect ---> v.
 expected ---> v.
 
 sleep ---> v.
-slept ---> (vp, mood:(indicative, tense:past)).
+slept ---> (vp, mood:(indicative, tense:past), trans:intrans).
 
 %toinf
 to ---> toinf.
@@ -96,7 +96,7 @@ cat> (vp, mood:(indicative, tense:past)).
 
 %%Imperative sentence
 simprule rule
-si
+s
 ===>
 cat> v,
 cat> np.
@@ -111,7 +111,7 @@ cat> det,
 cat> n.
 
 nprule rule
-ne
+n
 ===>
 cat> (n, index:(num:pl)).
 
