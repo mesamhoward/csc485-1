@@ -75,11 +75,19 @@ slept ---> v.
 to ---> toinf.
 
 %rules
-srule rule
+%declarative sentence
+sdecrule rule
 s
 ===>
 cat> np,
 cat> v.
+
+%Imperative sentence
+simprule rule
+s
+===>
+cat> v,
+cat> np.
 
 detrule rule
 np
