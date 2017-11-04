@@ -16,8 +16,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 vproj sub [inf_clause,s,vp] intro [mood:mood].
                         s intro [mood:indicative].
                         inf_clause intro [mood:infinitive].
-                        vp intro [mood:indicative, trans:transitivity].
-				transitivity sub [trans, intrans].
+                        vp intro [mood:indicative].
                 np sub [].
 
         verbal sub [v,vproj] intro [vsem:v_sem].
@@ -62,19 +61,19 @@ the ---> det.
 
 %verbs
 prefer ---> v.
-preferred ---> (vp, mood:(indicative, tense:past), trans:trans).
+preferred ---> (vp, mood:(indicative, tense:past)).
 
 persuade ---> v.
-persuaded ---> (vp, mood:(indicative, tense:past), trans:trans).
+persuaded ---> (vp, mood:(indicative, tense:past)).
 
 promise ---> v.
-promised ---> (vp, mood:(indicative, tense:past), trans:trans).
+promised ---> (vp, mood:(indicative, tense:past)).
 
 expect ---> v.
-expected ---> (vp, mood:(indicative, tense:past), trans:trans).
+expected ---> (vp, mood:(indicative, tense:past)).
 
 sleep ---> v.
-slept ---> (vp, mood:(indicative, tense:past), trans:intrans).
+slept ---> (vp, mood:(indicative, tense:past)).
 
 %toinf
 to ---> toinf.
@@ -88,7 +87,7 @@ stransrule rule
 s
 ===>
 cat> np,
-cat> (vp, mood:(indicative, tense:past), trans:trans),
+cat> (vp, mood:(indicative, tense:past)),
 cat> np.
 
 %%students slept
@@ -96,7 +95,7 @@ sintrans rule
 s
 ===>
 cat> np,
-cat> (vp, mood:(indicative, tense:past), trans:intrans).
+cat> (vp, mood:(indicative, tense:past)).
 
 %%Declartive sentence
 sdecrule rule
@@ -110,7 +109,7 @@ cat> (inf_clause, mood:(infinitive, tense:present)).
 simprule rule
 s
 ===>
-cat> (vp, mood:(indicative, tense:past), trans:trans),
+cat> (vp, mood:(indicative, tense:past)),
 cat> np.
 
 %Verb rules
@@ -118,13 +117,13 @@ cat> np.
 vprojgaprule rule
 vproj
 ===>
-cat> (vp, mood:(indicative, tense:past), trans:trans),
+cat> (vp, mood:(indicative, tense:past)),
 cat> inf_clause.
 
 vprojrule rule
 vproj
 ===>
-cat> (vp, mood:(indicative, tense:past), trans:trans),
+cat> (vp, mood:(indicative, tense:past)),
 cat> inf_clause.
 
 %Noun rules
