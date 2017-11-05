@@ -18,8 +18,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                         vp intro [mood:indicative].
                 np sub [].
 
-        verbal sub [v,vproj] intro [vsem:n_sem].
-        nominal sub [n,np] intro [nsem:v_sem].
+        verbal sub [v,vproj] intro [vsem:v_sem].
+        nominal sub [n,np] intro [nsem:n_sem].
 
         % mood and tense for verbs
         tense sub [past, present].
@@ -43,6 +43,62 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                         sleep sub [].
 
                 % semantics for nouns
-                n_sem sub [student, teacher].
-                        student sub [].
-                        teacher sub [].
+                n_sem sub [student, teacher] intro [num:number].
+				number sub [sg, pl].
+                        student sub [n].
+                        teacher sub [n].
+
+%Lexicon
+the ---> det.
+
+student ---> (n, num:sg).
+students ---> (n, num:pl).
+teacher ---> (n, num:sg).
+teachers ---> (n, num: pl).
+
+to ---> toinf.
+
+sleep ---> v.
+slept ---> (vp, mood:(indicative, tense:past)).
+
+%rules
+
+%Sentences
+%%S -> NP VP
+srule rule
+s
+===>
+cat> np,
+cat> (vp, mood:(indicative, tense:past)).
+
+
+%Verbs
+%%VP -> V
+%%VP -> V NP
+%%VP -> V inf_c
+%%VP -> V NP inf_c
+
+%%inf_clause
+%%inf_c -> toinf VP
+
+%%Verbs
+%%VP -> Vpast
+%%VP -> Vpast NPnoBen
+%%VP -> VPast inf_clause
+%%VP -> Vpast NP inf_clause
+
+%%inf_clause
+%%infc -> toinf Vpresent
+%%infc -> to Vp Npnoben
+%%infc -> to VP Npnoben inf_c
+%%NP rules
+detrule rule
+np
+===>
+cat> det,
+cat> n.
+
+n_rule rule
+np
+===>
+cat> (n, num:pl).
