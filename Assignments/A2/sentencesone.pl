@@ -1,4 +1,4 @@
-% Xin Serena Wen, wenxin6, 1000442666
+%Xin Serena Wen, wenxin6, 1000442666
 %passes
 test_sent([she, fed, the, dog, with, puppies, with, him]).
 test_sent([she, fed, the, dog, with, the, puppies]).

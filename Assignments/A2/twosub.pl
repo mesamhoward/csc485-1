@@ -1,3 +1,4 @@
+%Xin Serena Wen, wenxin6, 1000442666
 :- ale_flag(subtypecover,_,off).
 :- discontiguous sub/2,intro/2.
 
