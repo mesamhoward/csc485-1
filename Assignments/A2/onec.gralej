@@ -1,0 +1,54 @@
+<'she fed the dog with puppies'
+{ :'srule:she fed the dog with puppies'
+    s
+    { :'lexicon:she'
+        np(
+            head: n(
+                index: index(
+                    num: number,
+                    pro: nom)))
+    }
+    { :'vprule:fed the dog with puppies'
+        vp
+        { :'lexicon:fed'
+            v
+        }
+        { :'det_pprule:the dog with puppies'
+            np(
+                head: n(
+                    index: index(
+                        num: number,
+                        pro: nonpro)))
+            { :'lexicon:the'
+                det
+            }
+            { :'lexicon:dog'
+                n(
+                    index: index(
+                        num: sg,
+                        pro: nonpro))
+            }
+            { :'pprule:with puppies'
+                pp
+                { :'lexicon:with'
+                    p
+                }
+                { :'nrule:puppies'
+                    np(
+                        head: n(
+                            index: index(
+                                num: number,
+                                pro: nonpro)))
+                    { :'lexicon:puppies'
+                        n(
+                            index: index(
+                                num: pl,
+                                pro: nonpro))
+                    }
+                }
+            }
+        }
+    }
+}
+>
+
