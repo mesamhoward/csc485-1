@@ -19,8 +19,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                         vp intro [mood:indicative].
                 np sub [].
 
-        verbal sub [v,vproj] intro [vsem:v_sem].
-        nominal sub [n,np] intro [nsem:n_sem].
+        verbal sub [v,vproj] intro [vsem:n_sem].
+        nominal sub [n,np] intro [nsem:v_sem].
 
         % mood and tense for verbs
         tense sub [past, present].
