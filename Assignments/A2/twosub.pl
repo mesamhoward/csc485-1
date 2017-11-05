@@ -35,12 +35,12 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 
                 % semantics for verbs
                 v_sem sub [prefer, persuade, promise, expect, sleep]
-                      intro [agent:Ind1].   % This should not be empty!  Fill in features for this and
+                      intro [agent:index].   % This should not be empty!  Fill in features for this and
                                   %  the following subtypes:
-                        prefer sub [] intro [theme:Ind2, ben:Ind3].
-                        persuade sub [] intro [theme:Ind2].
-                        promise sub [] intro [theme:Ind2, ben:Ind3].
-                        expect sub [] intro [theme:Ind2].
+                        prefer sub [] intro [theme:index, ben:index].
+                        persuade sub [] intro [theme:index].
+                        promise sub [] intro [theme:index, ben:index].
+                        expect sub [] intro [theme:index].
                         sleep sub [].
 
                 % semantics for nouns
