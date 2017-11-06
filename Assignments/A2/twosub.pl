@@ -52,15 +52,15 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 %Lexicon
 the ---> det.
 
-student ---> (n, num:sg).
-students ---> (n, num:pl).
-teacher ---> (n, num:sg).
-teachers ---> (n, num: pl).
+student ---> n.
+students ---> n.
+teacher ---> n.
+teachers ---> n.
 
 to ---> toinf.
 
 sleep ---> v.
-slept ---> (vp, mood:(indicative, tense:past)).
+slept ---> v.
 
 %rules
 
@@ -70,7 +70,7 @@ srule rule
 s
 ===>
 cat> np,
-cat> (vp, mood:(indicative, tense:past)).
+cat> vp.
 
 
 %Verbs
@@ -92,6 +92,7 @@ cat> (vp, mood:(indicative, tense:past)).
 %%infc -> toinf Vpresent
 %%infc -> to Vp Npnoben
 %%infc -> to VP Npnoben inf_c
+
 %%NP rules
 detrule rule
 np
@@ -102,4 +103,4 @@ cat> n.
 n_rule rule
 np
 ===>
-cat> (n, num:pl).
+cat> n.
