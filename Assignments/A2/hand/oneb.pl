@@ -20,12 +20,12 @@ np sub [] intro [case:type].
 		acc sub [].
 
 %%Lexicon
-she ---> (np, case:nom, head:(index:(number:sg))).
+she ---> (np, case:nom).
 fed ---> v.
 the ---> det.
 dog ---> (n, index:(number:sg)).
 puppies ---> (n, index:(number:pl)).
-him ---> (np, case:acc, head:(index:(number:sg))).
+him ---> (np, case:acc).
 with ---> p.
 
 %%rules
