@@ -14,7 +14,7 @@ n sub [] intro [number:quantity].
 	quantity sub [sg, pl].
 		sg sub [].
 		pl sub [].
-np sub [] intro [case:type].
+np sub [] intro [case:type, head:n].
 	type sub [nom, acc].
 		nom sub [].
 		acc sub [].
@@ -34,7 +34,7 @@ with ---> p.
 srule rule
 s
 ===>
-cat> (np, case:nom),
+cat> (np, case:nom, head:(number:Number)),
 cat> vp.
 
 %%VP -> V NP
@@ -42,14 +42,14 @@ vprule rule
 vp
 ===>
 cat> v,
-cat> (np, case:acc).
+cat> (np, case:acc, head:(number:Number)).
 
 %%PP -> P NP
 pprule rule
 pp
 ===>
 cat> p,
-cat> (np, case:acc).
+cat> (np, case:acc, head:(number:Number)).
 
 %%NP -> N
 nrule rule
