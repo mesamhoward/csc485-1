@@ -56,13 +56,13 @@ cat> (np, head:(index:(case:acc))).
 nrule rule
 np
 ===>
-cat> (n, index:(num:pl)).
+cat> (n, index:(case:Case, num:pl)).
 
 %%NP -> N PP
 n_pprule rule
-(np, head:(index:(case:acc)))
+np
 ===>
-cat> (n, index:(num:pl)),
+cat> (n, index:(case:Case, num:pl)),
 cat> pp.
 
 %%NP -> Det NP
@@ -70,13 +70,13 @@ detrule rule
 np
 ===>
 cat> det,
-cat> n.
+cat> (n, index:(case:Case)).
 
 %%NP -> Det NP PP
 det_pprule rule
-(np, head:(index:(case:acc)))
+np
 ===>
 cat> det,
-cat> n,
+cat> (n, index:(case:Case)),
 cat> pp.
 
