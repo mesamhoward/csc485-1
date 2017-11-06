@@ -23,8 +23,8 @@ np sub [] intro [case:type].
 she ---> (np, case:nom).
 fed ---> v.
 the ---> det.
-dog ---> (n, index:(number:sg)).
-puppies ---> (n, index:(number:pl)).
+dog ---> (n, number:sg).
+puppies ---> (n, number:pl).
 him ---> (np, case:acc).
 with ---> p.
 
