@@ -46,8 +46,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 % semantics for nouns
                 n_sem sub [student, teacher] intro [num:number].
 				number sub [sg, pl].
-                        student sub [n].
-                        teacher sub [n].
+                        student sub [].
+                        teacher sub [].
 
 %Lexicon
 the ---> det.
