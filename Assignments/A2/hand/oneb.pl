@@ -1,8 +1,4 @@
 %Xin Serena Wen, wenxin6, 1000442666
-index sub [] intro [num:number].
-	number sub [sg, pl].
-		sg sub [].
-		pl sub [].
 cat sub [s, np, vp, pp, n, v, p].
 s sub [].
 
@@ -14,9 +10,11 @@ det sub [].
 v sub [].
 vp sub [].
 
-n sub [] intro [index:index].
-
-np sub [] intro [case:type, head:n].
+n sub [] intro [num:number].
+	number sub [sg, pl].
+		sg sub [].
+		pl sub [].
+np sub [] intro [case:type].
 	type sub [nom, acc].
 		nom sub [].
 		acc sub [].
@@ -57,13 +55,13 @@ cat> (np, case:acc).
 nrule rule
 np
 ===>
-cat> (n, index:(num:pl)).
+cat> (n, num:pl).
 
 %%NP -> N PP
 n_pprule rule
 np
 ===>
-cat> (n, index:(num:pl)),
+cat> (n, num:pl),
 cat> pp.
 
 %%NP -> Det NP
