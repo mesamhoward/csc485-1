@@ -31,11 +31,11 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                 infinitive sub [].
 
         % semantics for verbs and nouns
-        sem sub [v_sem, n_sem].
+        semi sub [v_sem, n_sem].
 
                 % semantics for verbs
                 v_sem sub [prefer, persuade, promise, expect, sleep]
-                      intro [].   % This should not be empty!  Fill in features for this and
+                      intro [tense:tense].   % This should not be empty!  Fill in features for this and
                                   %  the following subtypes:
                         prefer sub [].
                         persuade sub [].
@@ -44,8 +44,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
                         sleep sub [].
 
                 % semantics for nouns
-                n_sem sub [student, teacher] intro [num:number].
-				number sub [sg, pl].
+                n_sem sub [student, teacher] intro [number:number].
+			number sub [sg, pl].
                         student sub [].
                         teacher sub [].
 
@@ -54,6 +54,7 @@ the ---> det.
 
 student ---> n.
 students ---> n.
+
 teacher ---> n.
 teachers ---> n.
 
@@ -70,11 +71,16 @@ srule rule
 s
 ===>
 cat> np,
-cat> vp.
+cat> v.
 
 
 %Verbs
 %%VP -> V
+vrule rule
+vp
+===>
+cat> v.
+
 %%VP -> V NP
 %%VP -> V inf_c
 %%VP -> V NP inf_c
