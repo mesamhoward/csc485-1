@@ -16,7 +16,7 @@ vp sub [].
 
 n sub [] intro [index:index].
 
-np sub [] intro [head:n].
+np sub [] intro [case:type, head:n].
 	type sub [nom, acc].
 		nom sub [].
 		acc sub [].
