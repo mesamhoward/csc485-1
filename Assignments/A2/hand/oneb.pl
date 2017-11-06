@@ -10,8 +10,8 @@ det sub [].
 v sub [].
 vp sub [].
 
-n sub [] intro [num:number].
-	number sub [sg, pl].
+n sub [] intro [number:quantity].
+	quantity sub [sg, pl].
 		sg sub [].
 		pl sub [].
 np sub [] intro [case:type].
@@ -20,12 +20,12 @@ np sub [] intro [case:type].
 		acc sub [].
 
 %%Lexicon
-she ---> (np, case:nom, head:(index:(num:sg))).
+she ---> (np, case:nom, head:(index:(number:sg))).
 fed ---> v.
 the ---> det.
-dog ---> (n, index:(num:sg)).
-puppies ---> (n, index:(num:pl)).
-him ---> (np, case:acc, head:(index:(num:sg))).
+dog ---> (n, index:(number:sg)).
+puppies ---> (n, index:(number:pl)).
+him ---> (np, case:acc, head:(index:(number:sg))).
 with ---> p.
 
 %%rules
@@ -55,13 +55,13 @@ cat> (np, case:acc).
 nrule rule
 np
 ===>
-cat> (n, num:pl).
+cat> (n, number:pl).
 
 %%NP -> N PP
 n_pprule rule
 np
 ===>
-cat> (n, num:pl),
+cat> (n, number:pl),
 cat> pp.
 
 %%NP -> Det NP
