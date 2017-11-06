@@ -1,9 +1,8 @@
 %Xin Serena Wen, wenxin6, 1000442666
-index sub [] intro [pro:pronoun, num:number].
-	pronoun sub [nom, acc, nonpro].
+index sub [] intro [case:type, num:number].
+	type sub [nom, acc].
 		nom sub [].
 		acc sub [].
-		nonpro sub [].
 	number sub [sg, pl].
 		sg sub [].
 		pl sub [].
@@ -22,12 +21,12 @@ n sub [] intro [index:index].
 np sub [] intro [head:n].
 
 %%Lexicon
-she ---> (np, head:(index:(pro:nom))).
+she ---> (np, head:(index:(case:nom))).
 fed ---> v.
 the ---> det.
-dog ---> (n, index:(pro:nonpro, num:sg)).
-puppies ---> (n, index:(pro:nonpro, num:pl)).
-him ---> (np, head:(index:(pro:acc))).
+dog ---> (n, index:(num:sg)).
+puppies ---> (n, index:(num:pl)).
+him ---> (np, head:(index:(case:acc))).
 with ---> p.
 
 %%rules
@@ -36,7 +35,7 @@ with ---> p.
 srule rule
 s
 ===>
-cat> (np, head:(index:(pro:(nom;nonpro)))),
+cat> (np, head:(index:(case:nom))),
 cat> vp.
 
 %%VP -> V NP
@@ -44,39 +43,40 @@ vprule rule
 vp
 ===>
 cat> v,
-cat> (np, head:(index:(pro:(acc;nonpro)))).
+cat> (np, head:(index:(case:acc))).
 
 %%PP -> P NP
 pprule rule
 pp
 ===>
 cat> p,
-cat> (np, head:(index:(pro:(acc;nonpro)))).
+cat> (np, head:(index:(case:acc))).
 
 %%NP -> N
 nrule rule
-(np, head:(index:(pro:nonpro)))
+np
 ===>
 cat> (n, index:(num:pl)).
 
 %%NP -> N PP
 n_pprule rule
-(np, head:(index:(pro:(acc;nonpro))))
+(np, head:(index:(case:acc)))
 ===>
 cat> (n, index:(num:pl)),
 cat> pp.
 
 %%NP -> Det NP
 detrule rule
-(np, head:(index:(pro:nonpro)))
+np
 ===>
 cat> det,
-cat> (n, index:(pro:nonpro)).
+cat> n.
 
 %%NP -> Det NP PP
 det_pprule rule
-(np, head:(index:(pro:nonpro)))
+(np, head:(index:(case:acc)))
 ===>
 cat> det,
-cat> (n, index:(pro:nonpro)),
+cat> n,
 cat> pp.
+
