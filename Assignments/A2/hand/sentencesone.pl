@@ -4,7 +4,7 @@ test_sent([she, fed, the, dog, with, puppies, with, him]).
 test_sent([she, fed, the, dog, with, the, puppies]).
 test_sent([puppies, fed, the, dog, with, him]).
 test_sent([she, fed, puppies]).
-test_sent([the dog, with, him, fed, him]).
+test_sent([the, dog, with, him, fed, him]).
 
 %fails
 test_sent([him, fed, the, puppies], fails).

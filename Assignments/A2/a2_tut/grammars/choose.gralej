@@ -1,0 +1,59 @@
+<'she fed the dog with puppies with him'
+{ :'srule:she fed the dog with puppies with him'
+    s
+    { :'lexicon:she'
+        np(
+            case: nom,
+            head: n(
+                number: sg))
+    }
+    { :'vprule:fed the dog with puppies with him'
+        vp
+        { :'lexicon:fed'
+            v
+        }
+        { :'det_pprule:the dog with puppies with him'
+            np(
+                case: acc,
+                head: n(
+                    number: quantity))
+            { :'lexicon:the'
+                det
+            }
+            { :'lexicon:dog'
+                n(
+                    number: sg)
+            }
+            { :'pprule:with puppies with him'
+                pp
+                { :'lexicon:with'
+                    p
+                }
+                { :'n_pprule:puppies with him'
+                    np(
+                        case: acc,
+                        head: n(
+                            number: quantity))
+                    { :'lexicon:puppies'
+                        n(
+                            number: pl)
+                    }
+                    { :'pprule:with him'
+                        pp
+                        { :'lexicon:with'
+                            p
+                        }
+                        { :'lexicon:him'
+                            np(
+                                case: acc,
+                                head: n(
+                                    number: sg))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+>
+
