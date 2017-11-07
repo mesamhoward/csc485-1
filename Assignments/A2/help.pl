@@ -66,11 +66,18 @@ teachers ---> (n, nsem:(teacher, amt:pl)).
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:Agent, theme:none, ben:none, exp:none)).
 
-expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Nounp2, ben:none, exp:none)).
-expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Nounp2, ben:none, exp:none)).
+expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
 
-prefer ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Nounp2, ben:none, exp:none)).
-preferred ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Nounp2, ben:none, exp:none)).
+prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
+preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
+
+persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+
+promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+
 
 
 %Rules
