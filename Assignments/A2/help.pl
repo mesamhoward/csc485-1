@@ -35,11 +35,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 		% semantics for verbs
 		v_sem sub [prefer, persuade, promise, expect, sleep]
 		      intro [].   % This should not be empty!  Fill in features for this and
-<<<<<<< HEAD
-			          %  the following subtypes:
-=======
                                   %  the following subtypes:
->>>>>>> parent of dc16f7a... adding vform
 			prefer sub [].
 			persuade sub [].
 			promise sub [].
