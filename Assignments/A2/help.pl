@@ -52,7 +52,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			amount sub [sg, pl].
 			student sub [].
 			teacher sub [].
-		n_sem_or_none sub [n_sem, none].
+		n_sem_or_none sub [n_sem, gap, none].
+			gap sub [].
 			none sub [].
 		theme_or_none sub [theme, none].
 
