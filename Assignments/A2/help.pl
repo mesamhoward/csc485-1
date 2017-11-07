@@ -63,7 +63,7 @@ students ---> (n, nsem:(student, amt:pl)).
 teacher ---> (n, nsem:(teacher, amt:sg)).
 teachers ---> (n, nsem:(teacher, amt:pl)).
 
-sleep ---> (v, vsem:(sleep, vform:base, agent:Nounp, theme:none, ben:none, exp:none)).
+sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:Nounp, theme:none, ben:none, exp:none)).
 
 expect ---> (v, vsem:(expect, vform:base, agent:Nounp, theme:Nounp2, ben:none, exp:none)).
@@ -103,4 +103,4 @@ inf_rule rule
 (inf_clause, vsem:(vform:base, exp:Exp))
 ===>
 cat> toinf,
-cat> (v, vsem:(vform:base), agent:Agent, theme:none, ben:none, exp:Exp).
+cat> (v, vsem:(vform:base), agent:none, theme:none, ben:none, exp:Exp).
