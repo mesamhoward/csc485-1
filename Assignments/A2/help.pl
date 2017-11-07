@@ -68,17 +68,17 @@ teachers ---> (n, nsem:(teacher, amt:pl)).
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:none, theme:none, ben:none, exp:Exp)).
 
-expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
-expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
+expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
 
-prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
-preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
+prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
+preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
 
-persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:Theme, ben:Ben, exp:none)).
-persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
+persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
 
-promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:Theme, ben:Ben, exp:none)).
-promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
+promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
 
 %Rules
 %s->np+vp
@@ -112,8 +112,9 @@ cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 vtoinf rule
 (vp, vsem:(vform:fin, agent:Subj, exp:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:Theme)),
-cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:none, action:InfV), ben:none, exp:Subj)).
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:none, action:InfV), ben:none, exp:none)),
+cat> toinf.
+%cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:none, action:InfV), ben:none, exp:Subj)).
 
 %VP->V+NP+inf_clause
 %v_np_infcrule rule
@@ -124,7 +125,7 @@ cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:none, action:I
 
 %inf_clause
 inf_rule rule
-(inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfV), ben:none, exp:Exp))
+(inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfV), ben:Ben, exp:Exp))
 ===>
 cat> toinf,
-cat> (v, vsem:(vform:base, agent:none, theme:(theme, obj:none, action:InfV), ben:none, exp:Exp)).
+cat> (v, vsem:(vform:base, agent:none, theme:none, ben:none, exp:Exp)).
