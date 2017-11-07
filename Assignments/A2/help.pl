@@ -103,4 +103,4 @@ inf_rule rule
 (inf_clause, vsem:(vform:base, exp:Exp))
 ===>
 cat> toinf,
-cat> (v, vsem:(vform:base), agent:none, theme:none, ben:none, exp:Exp).
+cat> (v, vsem:(vform:base, agent:none, theme:none, ben:none, exp:Exp)).
