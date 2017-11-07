@@ -35,7 +35,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 		% semantics for verbs
 		v_sem sub [prefer, persuade, promise, expect, sleep]
 		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
-				theme sub [] intro [obj:n_sem, action:inf_clause].
+				theme sub [] intro [obj:n_sem_or_none, action:inf_clause].
 				verbform sub [base, fin].
 					base sub [].
 					fin sub [].
@@ -113,7 +113,7 @@ vtoinf rule
 (vp, vsem:(vform:fin, agent:Subj, exp:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:Theme)),
-cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:Theme, ben:none, exp:Subj)).
+cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:none, action:InfV), ben:none, exp:Subj)).
 
 %VP->V+NP+inf_clause
 %v_np_infcrule rule
@@ -124,7 +124,7 @@ cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:Theme, ben:none, exp:Subj)
 
 %inf_clause
 inf_rule rule
-(inf_clause, vsem:(vform:base, exp:Exp))
+(inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfV), ben:none, exp:Exp))
 ===>
 cat> toinf,
-cat> (v, vsem:(vform:base, agent:none, theme:none, ben:none, exp:Exp)).
+cat> (v, vsem:(vform:base, agent:none, theme:(theme, obj:none, action:InfV), ben:none, exp:Exp)).
