@@ -66,6 +66,10 @@ teachers ---> (n, nsem:(teacher, amt:pl)).
 sleep ---> (v, vsem:(sleep, vform:base, agent:Nounp, theme:none, ben:none, exp:none)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:Nounp, theme:none, ben:none, exp:none)).
 
+expect ---> (v, vsem:(expect, vform:base, agent:Nounp, theme:Nounp2, ben:none, exp:none)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Nounp, theme:Nounp2, ben:none, exp:none)).
+
+
 %Rules
 %s->np+vp
 s_rule rule
@@ -92,3 +96,5 @@ v_rule rule
 (vp, vsem:(vform:fin, agent:Agent))
 ===>
 cat> (v, vsem:(vform:fin, agent:Agent)).
+
+%VP->V+NP
