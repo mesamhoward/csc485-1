@@ -66,7 +66,7 @@ teacher ---> (n, nsem:(teacher, amt:sg)).
 teachers ---> (n, nsem:(teacher, amt:pl)).
 
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp)).
-slept ---> (v, vsem:(sleep, vform:fin, agent:Agent, theme:none, ben:none, exp:none)).
+slept ---> (v, vsem:(sleep, vform:fin, agent:none, theme:none, ben:none, exp:Exp)).
 
 expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
 expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
@@ -85,8 +85,8 @@ promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben, 
 s_rule rule
 s
 ===>
-cat> (np, nsem:Agent),
-cat> (vp, vsem:(vform:fin, agent:Agent)).
+cat> (np, nsem:Subj),
+cat> (vp, vsem:(vform:fin, agent:Subj, exp:Subj)).
 
 %np->det+n
 det_rule rule
@@ -103,9 +103,9 @@ cat> (n, nsem:(amt:pl)).
 
 %VP->V
 v_rule rule
-(vp, vsem:(vform:fin, agent:Agent))
+(vp, vsem:(vform:fin, exp:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Agent)).
+cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 
 %VP->V+inf_clause
 vtoinf rule
