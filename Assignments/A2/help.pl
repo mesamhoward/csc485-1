@@ -80,4 +80,4 @@ cat> n.
 n_rule rule
 np
 ===>
-cat> (n, nsem:(Nsem, amt:pl)).
+cat> (n, nsem:(amt:pl)).
