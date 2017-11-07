@@ -78,8 +78,6 @@ persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben,
 promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:Theme, ben:Ben, exp:none)).
 promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben, exp:none)).
 
-
-
 %Rules
 %s->np+vp
 s_rule rule
