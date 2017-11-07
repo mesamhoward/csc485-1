@@ -84,7 +84,7 @@ promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(theme, obj:Obj,
 %Rules
 %s->np+vp
 s_rule rule
-s
+(s, mood:(indicative, tense:past))
 ===>
 cat> (np, nsem:Subj),
 cat> (vp, vsem:(vform:fin, agent:Subj, exp:Subj)).
