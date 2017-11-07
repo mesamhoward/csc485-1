@@ -7,7 +7,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
         pos sub [n,p,v,det,toinf].
 		toinf sub [].	% infinitival to
                 n sub [].
-                v sub [].
+                v sub [] intro [tense:tense].
                 p sub [].
                 det sub [].
 	% phrasal categories
@@ -34,10 +34,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 
 		% semantics for verbs
 		v_sem sub [prefer, persuade, promise, expect, sleep]
-		      intro [vform:vform].   % This should not be empty!  Fill in features for this and
-                        vform sub [base, fin].
-				base sub [].
-				fin sub [].
+		      intro [].   % This should not be empty!  Fill in features for this and
 			          %  the following subtypes:
 			prefer sub [].
 			persuade sub [].
@@ -62,7 +59,7 @@ teacher ---> (n, nsem:(teacher, amt:sg)).
 teachers ---> (n, nsem:(teacher, amt:pl)).
 
 sleep ---> v.
-slept ---> v.
+slept ---> (v, tense:past).
 
 %Rules
 %s->np+vp
@@ -84,3 +81,9 @@ n_rule rule
 np
 ===>
 cat> (n, nsem:(amt:pl)).
+
+%vp->v
+v_rule rule
+vp
+===>
+cat> (v, tense:Tense)
