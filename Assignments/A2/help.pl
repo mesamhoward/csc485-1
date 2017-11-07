@@ -119,7 +119,7 @@ cat> (inf_clause, vsem:InfC).
 
 %inf_c->to+v
 infrule rule
-inf_clause
+(inf_clause, vsem:inf)
 ===>
 cat> toinf,
 cat> v.
