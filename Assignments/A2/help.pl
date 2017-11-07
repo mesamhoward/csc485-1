@@ -58,13 +58,13 @@ students ---> (n, nsem:(student, amt:pl)).
 teacher ---> (n, nsem:(teacher, amt:sg)).
 teachers ---> (n, nsem:(teacher, amt:pl)).
 
-sleep ---> v.
+sleep ---> (v, tense:present).
 slept ---> (v, tense:past).
 
 %Rules
 %s->np+vp
 s_rule rule
-(s, mood:(indicative, tense:past))
+s
 ===>
 cat> np,
 cat> v.
@@ -82,8 +82,3 @@ np
 ===>
 cat> (n, nsem:(amt:pl)).
 
-%vp->v
-v_rule rule
-vp
-===>
-cat> (v, tense:Tense)
