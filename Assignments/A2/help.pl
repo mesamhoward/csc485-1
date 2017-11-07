@@ -34,7 +34,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 
 		% semantics for verbs
 		v_sem sub [prefer, persuade, promise, expect, sleep]
-		      intro [vform:verbform, agent:n_sem_or_none, theme:n_sem_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
+		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
+				theme sub [] intro [n_sem:Obj, inf_clause:Action].
 				verbform sub [base, fin].
 					base sub [].
 					fin sub [].
@@ -52,6 +53,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			teacher sub [].
 		n_sem_or_none sub [n_sem, none].
 			none sub [].
+		theme_or_none sub [theme, none].
 
 %Lexicon
 
