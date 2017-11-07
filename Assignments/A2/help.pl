@@ -113,9 +113,15 @@ vtoinf rule
 (vp, vsem:(vform:fin, agent:Subj, exp:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:none, action:InfC), ben:none, exp:none)),
-cat> toinf,
-cat> (v, vsem:(vform:base, agent:none, .
+cat> (inf_clause, vsem:(InfC)).
 %cat> (inf_clause, vsem:(InfC, vform:base, agent:Subj, theme:(theme, obj:none, action:Basev), ben:none, exp:Subj)).
+
+%inf_c->to+v
+infrule rule
+inf_clause
+===>
+cat> toinf,
+cat> v.
 
 %VP->V+NP+inf_clause
 %v_np_infcrule rule
