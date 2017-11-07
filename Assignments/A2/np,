@@ -1,21 +1,0 @@
-cat> (vp, mood:(indicative, tense:past)),cat> np.%%students sleptsintrans rules===>cat> np,cat> (vp, mood:(indicative, tense:past)).%%Declartive sentencesdecrule rules===>cat> np,cat> (inf_clause, mood:(infinitive, tense:present)).%%Imperative sentence%%preffered the teachersimprule rules===>cat> (vp, mood:(indicative, tense:past)),cat> np.%Verb rules%%preffered to sleepvprojgaprule rulevproj===>cat> (vp, mood:(indicative, tense:past)),cat> inf_clause.vprojrule rulevproj===>cat> (vp, mood:(indicative, tense:past)),
-cat> inf_clause.
-
-%Noun rules
-detrule rule
-np
-===>
-cat> det,
-cat> n.
-
-nprule rule
-np
-===>
-cat> (n, index:(num:pl)).
-
-infrule rule
-inf_clause
-===>
-cat> toinf,
-cat> v.
-exit

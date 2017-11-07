@@ -46,3 +46,19 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 		n_sem sub [student, teacher].
 			student sub [].
 			teacher sub [].
+
+%Lexicon
+
+the ---> det.
+to ---> toinf.
+
+student ---> n.
+students ---> n.
+teacher ---> n.
+teachers ---> n.
+
+sleep ---> v.
+slept ---> v.
+
+%Rules
+%s->np+vp
