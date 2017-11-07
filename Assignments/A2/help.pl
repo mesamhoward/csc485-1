@@ -97,7 +97,13 @@ v_rule rule
 ===>
 cat> (v, vsem:(vform:fin, agent:Agent)).
 
-%VP->V+NP
+%VP->V+toinf
+vtoinf rule
+(vp, vsem:(vform:fin, agent:Agent))
+===>
+cat> (v, vsem:(vform:fin, agent:Agent)),
+cat> (inf_clause, vsem:(vform:base, exp:Agent)).
+
 %inf_clause
 inf_rule rule
 (inf_clause, vsem:(vform:base, exp:Exp))
