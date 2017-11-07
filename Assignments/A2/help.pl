@@ -43,7 +43,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			sleep sub [].
 
 		% semantics for nouns
-		n_sem sub [student, teacher].
+		n_sem sub [student, teacher] intro [number:number].
+			number sub [sg, pl].
 			student sub [].
 			teacher sub [].
 
@@ -52,13 +53,26 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 the ---> det.
 to ---> toinf.
 
-student ---> n.
-students ---> n.
-teacher ---> n.
-teachers ---> n.
+student ---> (n, nsem:(student, number:sg)).
+students ---> (n, nsem:(student, number:pl)).
+teacher ---> (n, nsem:(teacher, number:sg)).
+teachers ---> (n, nsem:(teacher, number:pl)).
 
 sleep ---> v.
 slept ---> v.
 
 %Rules
 %s->np+vp
+
+%np->det+n
+det_rule rule
+np
+===>
+cat> det,
+cat> n.
+
+%np->n
+n_rule rule
+np
+===>
+cat> (n, nsem:(number:pl))
