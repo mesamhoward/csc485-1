@@ -119,7 +119,7 @@ cat> (inf_clause, vsem:(InfC, agent:Subj, exp:Subj)).
 
 %inf_c->to+v
 infrule rule
-infa_clause
+inf_clause
 ===>
 cat> toinf,
 cat> v.
