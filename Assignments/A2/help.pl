@@ -64,7 +64,7 @@ slept ---> v.
 %Rules
 %s->np+vp
 s_rule rule
-s
+(s, mood:(indicative, tense:past))
 ===>
 cat> np,
 cat> v.
