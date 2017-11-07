@@ -63,6 +63,11 @@ slept ---> v.
 
 %Rules
 %s->np+vp
+s_rule rule
+s
+===>
+cat> np,
+cat> v.
 
 %np->det+n
 det_rule rule
