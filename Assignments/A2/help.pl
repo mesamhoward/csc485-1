@@ -100,7 +100,7 @@ cat> (v, vsem:(vform:fin, agent:Agent)).
 %VP->V+NP
 %inf_clause
 inf_rule rule
-(inf_clause, vsem:(vform:base, agent:Agent))
+(inf_clause, vsem:(vform:base, exp:Exp))
 ===>
 cat> toinf,
-cat> (v, vsem:(vform:base)).
+cat> (v, vsem:(vform:base), agent:Agent, theme:none, ben:none, exp:Exp).
