@@ -69,6 +69,9 @@ slept ---> (v, vsem:(sleep, vform:fin, agent:Agent, theme:none, ben:none, exp:no
 expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Nounp2, ben:none, exp:none)).
 expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Nounp2, ben:none, exp:none)).
 
+prefer ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Nounp2, ben:none, exp:none)).
+preferred ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Nounp2, ben:none, exp:none)).
+
 
 %Rules
 %s->np+vp
