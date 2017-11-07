@@ -50,6 +50,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			amount sub [sg, pl].
 			student sub [].
 			teacher sub [].
+		n_sem_or_none sub [n_sem, none].
+			none sub [].
 
 %Lexicon
 
@@ -61,8 +63,8 @@ students ---> (n, nsem:(student, amt:pl)).
 teacher ---> (n, nsem:(teacher, amt:sg)).
 teachers ---> (n, nsem:(teacher, amt:pl)).
 
-sleep ---> (v, vsem:(sleep, vform:base, agent:Nounp)).
-slept ---> (v, vsem:(sleep, vform:fin, agent:Nounp)).
+sleep ---> (v, vsem:(sleep, vform:base, agent:Nounp, theme:none, ben:none, exp:none)).
+slept ---> (v, vsem:(sleep, vform:fin, agent:Nounp, theme:none, ben:none, exp:none)).
 
 %Rules
 %s->np+vp
