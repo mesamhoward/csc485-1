@@ -34,7 +34,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 
 		% semantics for verbs
 		v_sem sub [prefer, persuade, promise, expect, sleep]
-		      intro [vform:verbform].   % This should not be empty!  Fill in features for this and
+		      intro [vform:verbform, agent:n_sem].   % This should not be empty!  Fill in features for this and
 				verbform sub [base, fin].
 					base sub [].
 					fin sub [].
@@ -61,16 +61,16 @@ students ---> (n, nsem:(student, amt:pl)).
 teacher ---> (n, nsem:(teacher, amt:sg)).
 teachers ---> (n, nsem:(teacher, amt:pl)).
 
-sleep ---> (v, vsem:(sleep, vform:base)).
-slept ---> (v, vsem:(sleep, vform:fin)).
+sleep ---> (v, vsem:(sleep, vform:base, agent:Nounp)).
+slept ---> (v, vsem:(sleep, vform:fin, agent:Nounp)).
 
 %Rules
 %s->np+vp
 s_rule rule
 s
 ===>
-cat> np,
-cat> (vp, vsem:(vform:fin)).
+cat> (np, nsem:Agent),
+cat> (vp, vsem:(vform:fin, agent:Agent)).
 
 %np->det+n
 det_rule rule
@@ -87,6 +87,6 @@ cat> (n, nsem:(amt:pl)).
 
 %VP->V
 v_rule rule
-(vp, vsem:(vform:fin))
+(vp, vsem:(vform:fin, agent:Agent))
 ===>
-cat> (v, vsem:(vform:fin)).
+cat> (v, vsem:(vform:fin, agent:Agent)).
