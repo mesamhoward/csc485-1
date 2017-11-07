@@ -64,10 +64,10 @@ teacher ---> (n, nsem:(teacher, amt:sg)).
 teachers ---> (n, nsem:(teacher, amt:pl)).
 
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp)).
-slept ---> (v, vsem:(sleep, vform:fin, agent:Nounp, theme:none, ben:none, exp:none)).
+slept ---> (v, vsem:(sleep, vform:fin, agent:Agent, theme:none, ben:none, exp:none)).
 
-expect ---> (v, vsem:(expect, vform:base, agent:Nounp, theme:Nounp2, ben:none, exp:none)).
-expected ---> (v, vsem:(expect, vform:fin, agent:Nounp, theme:Nounp2, ben:none, exp:none)).
+expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Nounp2, ben:none, exp:none)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Nounp2, ben:none, exp:none)).
 
 
 %Rules
