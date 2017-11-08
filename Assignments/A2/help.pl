@@ -14,7 +14,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 	cat sub [vproj,np].
 		vproj sub [inf_clause,s,vp] intro [mood:mood].
 			s intro [mood:indicative].
-            inf_clause intro [mood:infinitive, rec:nsem].
+            inf_clause intro [mood:infinitive, rec:n_sem].
 			vp intro [mood:indicative].
 		np sub [].
 
@@ -37,7 +37,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 				%Pass=the NP that will serve as the Agent/Experiencer
 		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none, pass:n_sem_or_none].   % This should not be empty!  Fill in features for this and
 						%Features
-						n_sem_or_none sub [nsem, gap, none].
+						n_sem_or_none sub [n_sem, gap, none].
 							none sub [].
 						theme_or_none sub [theme, none].
 							theme sub []  intro [obj:n_sem_or_none, action:vsem].
@@ -45,11 +45,11 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 							base sub [].
 							fin sub [].
                                   %  the following subtypes:
-			prefer sub [] intro [vform:verbform, agent:nsem, theme:theme, ben:none, exp:none, pass:nsem].
-			persuade sub [] intro [vform:verbform, agent:nsem, theme:theme, ben:nsem, exp:none, pass:nsem].
-			promise sub [] intro [vform:verbform, agent:nsem, theme:theme, ben:nsem, exp:none, pass:nsem].
-			expect sub []  intro [vform:verbform, agent:nsem, theme:theme, ben:none, exp:none, pass:nsem].
-			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:nsem, pass:none].
+			prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:n_sem].
+			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:n_sem].
+			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:n_sem].
+			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:n_sem].
+			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem, pass:none].
 
 		% semantics for nouns
 		n_sem sub [student, teacher, gap] intro [amt:amount].
