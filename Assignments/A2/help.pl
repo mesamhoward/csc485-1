@@ -81,8 +81,8 @@ preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(Theme, obj:Obj, 
 persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
 persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
 
-promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:subject)).
-promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:subject)).
+%promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:subject)).
+%promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:subject)).
 
 %Rules
 %s->np+vp
@@ -120,7 +120,7 @@ cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:InfSem), ben
 cat> (inf_clause, rec:Subj).
 
 %VP->V+to+inf
-%Expected, preferred
+%no ben and pass obj
 vpobjrule rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
@@ -128,7 +128,13 @@ cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben
 cat> (np, nsem:(Obj)),
 cat> (inf_clause, rec:Obj).
 
-%Ex
+%ben and pass obj
+vpobjrule_ben rule
+(vp, vsem:(Vpast, vform:fin, agent:Subj))
+===>
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
+cat> (np, nsem:(Obj)),
+cat> (inf_clause, rec:Obj).
 
 %inf_c->to+v
 infrule rule
