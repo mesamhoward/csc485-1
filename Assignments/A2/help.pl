@@ -124,4 +124,3 @@ infrule rule
 ===>
 cat> toinf.
 cat> (v, vsem:(Bsem, vform:base, exp:Subj)).
-% vform:base, iexp:Subj)).
