@@ -92,6 +92,7 @@ s_rule rule
 cat> (np, nsem:Subj),
 cat> (vp, mood:(Mood, tense:past), vsem:(vform:fin, agent:Subj, exp:Subj)).
 
+%%%%%%%NP rules
 %np->det+n
 det_rule rule
 np
@@ -105,13 +106,14 @@ np
 ===>
 cat> (n, nsem:(amt:pl)).
 
+%%%%%%VP rules
 %VP->V
 v_rule rule
 (vp, vsem:(Vpast, vform:fin, exp:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 
-%VP->V+inf_clause
+%%%%%%%VP->V+inf_clause
 %no ben
 vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
@@ -119,7 +121,7 @@ vtoinf rule
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:InfSem), ben:none, exp:none)),
 cat> (inf_clause, rec:Subj).
 
-%VP->V+to+inf
+%%%%%%VP->V+to+inf
 %no ben and pass obj
 vpobjrule rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
@@ -144,17 +146,44 @@ cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben
 cat> (np, nsem:(Subj)),
 cat> (inf_clause, rec:Subj).
 
-%inf_c->to+v
+%%%%%%%%%inf_c->to+v
 infrule rule
 (inf_clause, rec:Subj)
 ===>
 cat> toinf,
 cat> (v, vsem:(vform:base, exp:Subj)).
 
-%inf_c->to+v+inf
+%%%%%%%%%inf_c->to+v+inf
 infrule rule
 (inf_clause, rec:Subj)
 ===>
 cat> toinf,
 cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:gap, action:InfSem), ben:none, exp:none)),
 cat> (inf_clause, rec:Subj).
+
+%%%%%%%%%%inf_c->to+v+n+inf
+
+%no ben and pass obj
+infobjrule rule
+(vp, vsem:(Vpast, vform:fin, agent:Subj))
+===>
+cat> toinf,
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:none, exp:none)),
+cat> (np, nsem:(Obj)),
+cat> (inf_clause, rec:Obj).
+
+%ben and pass obj
+%vpobjrule_ben rule
+%(vp, vsem:(Vpast, vform:fin, agent:Subj))
+%===>
+%cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
+%cat> (np, nsem:(Obj)),
+%cat> (inf_clause, rec:Obj).
+
+%ben and pass subj
+%vpsubjrule rule
+%(vp, vsem:(Vpast, vform:fin, agent:Subj))
+%===>
+%cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
+%cat> (np, nsem:(Subj)),
+%cat> (inf_clause, rec:Subj).
