@@ -39,16 +39,14 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 						n_sem_or_none sub [n_sem, gap, none].
 							none sub [].
 						theme_or_none sub [theme, none].
-							theme sub [inf, obj_inf]  intro [action:vsem].
-								inf sub [].
-								obj_inf sub [] intro [obj:nsem].
+							theme sub []  intro [obj:nsem, action:vsem].
 						verbform sub [base, fin].
 							base sub [].
 							fin sub [].
                                   %  the following subtypes:
 			prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none].
-			persuade sub [] intro [vform:verbform, agent:n_sem, theme:obj_inf, ben:n_sem, exp:none].
-			promise sub [] intro [vform:verbform, agent:n_sem, theme:obj_inf, ben:n_sem, exp:none].
+			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none].
+			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none].
 			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none].
 			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem].
 
@@ -77,11 +75,11 @@ expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Theme, ben:none, e
 prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
 preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
 
-persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(obj_inf, obj:Obj, action:Act), ben:Ben, exp:none)).
-persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(obj_inf, obj:Obj, action:Act), ben:Ben, exp:none)).
+persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none)).
+persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none)).
 
-promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(obj_inf, obj:Obj, action:Act), ben:Ben, exp:none)).
-promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(obj_inf, obj:Obj, action:Act), ben:Ben, exp:none)).
+promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none)).
+promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none)).
 
 %Rules
 %s->np+vp
