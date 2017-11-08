@@ -69,8 +69,8 @@ teachers ---> (n, nsem:(teacher, amt:pl)).
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:none, theme:none, ben:none, exp:Exp)).
 
-expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
-expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
+expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none)).
 
 prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
 preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
@@ -114,14 +114,13 @@ vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none)),
-cat> inf_clause.
+cat> (inf_clause).
 %(inf_clause, mood:Mood, vsem:Bsem).
 
 %inf_c->to+v
 %Bsem=base sem
 infrule rule
-(inf_clause, mood:Mood, rec:Subj, vsem:Bsem)
+(inf_clause, rec:Subj)
 ===>
-cat> toinf.
-cat> (v, vsem:(Bsem, vform:base, exp:Subj)).
-% vform:base, iexp:Subj)).
+cat> toinf,
+cat> (v, vsem:(vform:base, exp:Subj)).
