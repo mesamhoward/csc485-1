@@ -136,6 +136,14 @@ cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben
 cat> (np, nsem:(Obj)),
 cat> (inf_clause, rec:Obj).
 
+%ben and pass subj
+vpsubjrule rule
+(vp, vsem:(Vpast, vform:fin, agent:Subj))
+===>
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
+cat> (np, nsem:(Subj)),
+cat> (inf_clause, rec:Subj).
+
 %inf_c->to+v
 infrule rule
 (inf_clause, rec:Subj)
