@@ -84,7 +84,7 @@ promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj,
 %Rules
 %s->np+vp
 s_rule rule
-(s, mood:(Mood, tense:past))
+(s, mood:(Mood, tense:past), vsem:Vpast)
 ===>
 cat> (np, nsem:Subj),
 cat> (vp, mood:(Mood, tense:past), vsem:(vform:fin, agent:Subj, exp:Subj)).
@@ -104,14 +104,14 @@ cat> (n, nsem:(amt:pl)).
 
 %VP->V
 v_rule rule
-(vp, vsem:(vform:fin, exp:Subj))
+(vp, vsem:(Vpast, vform:fin, exp:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 
 %VP->V+inf_clause
 %Expected and preffered
 vtoinf rule
-(vp, vsem:(vform:fin, agent:Subj, exp:Subj))
+(vp, vsem:(Vpast, vform:fin, agent:Subj, exp:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Gap, action:Lol), ben:none, exp:none)),
 cat> (inf_clause, vsem:(agent:Subj, exp:Subj)).
