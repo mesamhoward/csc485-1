@@ -38,8 +38,9 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 						%Features
 						n_sem_or_none sub [n_sem, gap, none].
 							none sub [].
-						theme_or_none sub [theme, none].
-						theme sub [] intro [obj:n_sem_or_none, action:vsem].
+						theme_or_none sub [inf, obj_inf, none] intro [action:vsem].
+							inf sub [].
+							obj_inf sub [] intro [obj:nsem].
 						verbform sub [base, fin].
 							base sub [].
 							fin sub [].
