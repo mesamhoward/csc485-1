@@ -45,11 +45,11 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 							base sub [].
 							fin sub [].
                                   %  the following subtypes:
-			prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:none].
-			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:nsem].
-			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:nsem].
-			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:nsem].
-			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem, pass:nsem].
+			prefer sub [] intro [vform:verbform, agent:nsem, theme:theme, ben:none, exp:none, pass:nsem].
+			persuade sub [] intro [vform:verbform, agent:nsem, theme:theme, ben:nsem, exp:none, pass:nsem].
+			promise sub [] intro [vform:verbform, agent:nsem, theme:theme, ben:nsem, exp:none, pass:nsem].
+			expect sub []  intro [vform:verbform, agent:nsem, theme:theme, ben:none, exp:none, pass:nsem].
+			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:nsem, pass:none].
 
 		% semantics for nouns
 		n_sem sub [student, teacher, gap] intro [amt:amount].
