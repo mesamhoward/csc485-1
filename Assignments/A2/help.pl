@@ -51,7 +51,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem].
 
 		% semantics for nouns
-		n_sem sub [student, teacher, gap] intro [amt:amount].
+		n_sem sub [student, teacher] intro [amt:amount].
 			amount sub [sg, pl].
 			student sub [].
 			teacher sub [].
@@ -113,14 +113,27 @@ cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none)),
-cat> inf_clause.
-%(inf_clause, mood:Mood, vsem:Bsem).
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Gap, action:Lol), ben:none, exp:none)),
+cat> (inf_clause, vsem:(agent:Subj, exp:Subj)).
+%cat> (inf_clause, vsem:(InfC, vform:base, agent:Subj, theme:(theme, obj:none, action:Basev), ben:none, exp:Subj)).
 
 %inf_c->to+v
-%Bsem=base sem
 infrule rule
-(inf_clause, mood:Mood, rec:Subj, vsem:Bsem)
+(inf_clause, vsem:(agent:Subj, exp:Subj))
 ===>
-cat> toinf.
-cat> (v, vsem:(Bsem, vform:base, exp:Subj)).
+cat> toinf,
+cat> (v, vsem:(vform:base, agent:none, theme:none, ben:none, exp:Subj)).
+
+%VP->V+NP+inf_clause
+%v_np_infcrule rule
+%(vp, vsem:(vform:fin, agent:Agent))
+%===>
+%cat> (v, vsem:(vform:fin, agent:Agent)),
+%cat> (np, nsem:)
+
+%inf_clause
+%inf_rule rule
+%(inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfV), ben:Ben, exp:Exp))
+%===>
+%cat> toinf,
+%cat> (v, vsem:(vform:base, agent:none, theme:none, ben:none, exp:Exp)).
