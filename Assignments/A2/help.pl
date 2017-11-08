@@ -33,6 +33,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 	sem sub [v_sem, n_sem].
 
 		% semantics for verbs
+<<<<<<< HEAD
 		v_sem sub [prefer, persuade, promise, expect, sleep]
 		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
 					%features
@@ -51,13 +52,30 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			promise sub [] intro [agent:nsem, theme:theme_or_none, ben:nsem, exp:none].
 			expect sub [] intro [agent:nsem, theme:theme_or_none, ben:none, exp:none].
 			sleep sub [] intro [agent:none, theme:none, ben:none, exp:nsem].
+=======
+		v_sem sub [prefer, persuade, promise, expect, sleep, inf]
+		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
+				theme sub [] intro [obj:n_sem_or_none, action:vsem].
+				verbform sub [base, fin].
+					base sub [].
+					fin sub [].
+                                  %  the following subtypes:
+			prefer sub [].
+			persuade sub [].
+			promise sub [].
+			expect sub [].
+			sleep sub [].
+			inf sub [].
+>>>>>>> parent of 00c93a3... redid vsem
 
 		% semantics for nouns
 		n_sem sub [student, teacher] intro [amt:amount].
 			amount sub [sg, pl].
 			student sub [].
 			teacher sub [].
-		
+		n_sem_or_none sub [n_sem, gap, none].
+			none sub [].
+		theme_or_none sub [theme, none].
 
 %Lexicon
 
@@ -72,25 +90,25 @@ teachers ---> (n, nsem:(teacher, amt:pl)).
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:none, theme:none, ben:none, exp:Exp)).
 
-expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
-expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
+expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
 
-prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:Theme, ben:none, exp:none)).
-preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none)).
+prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
+preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:none, exp:none)).
 
-persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:Theme, ben:Ben, exp:none)).
-persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
+persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
 
-promise ---> (v, vsem:(promise, vform:base, agent:Agent, theme:Theme, ben:Ben, exp:none)).
-promised ---> (v, vsem:(promise, vform:fin, agent:Agent, theme:Theme, ben:Ben, exp:none)).
+promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
+promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(theme, obj:Obj, action:Act), ben:Ben, exp:none)).
 
 %Rules
 %s->np+vp
 s_rule rule
-(s, mood:(Mood, tense:past), vsem:VPastSem)
+(s, mood:(Mood, tense:past))
 ===>
 cat> (np, nsem:Subj),
-cat> (vp, mood:(Mood, tense:past), vsem:(VPastSem, vform:fin, agent:Subj, exp:Subj)).
+cat> (vp, mood:(Mood, tense:past), vsem:(vform:fin, agent:Subj, exp:Subj)).
 
 %np->det+n
 det_rule rule
@@ -107,16 +125,16 @@ cat> (n, nsem:(amt:pl)).
 
 %VP->V
 v_rule rule
-(vp, vsem:(VPastSem, vform:fin, exp:Subj))
+(vp, vsem:(vform:fin, exp:Subj))
 ===>
-cat> (v, vsem:(VPastSem, vform:fin, agent:none, exp:Subj)).
+cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 
 %VP->V+inf_clause
 %Expected and preffered
 vtoinf rule
-(vp, vsem:(VPastSem, vform:fin, agent:Subj, exp:Subj))
+(vp, vsem:(vform:fin, agent:Subj, exp:Subj))
 ===>
-cat> (v, vsem:(VPastSem, vform:fin, agent:Subj, theme:(inf, action:Inf), ben:none, exp:none)),
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Gap, action:Lol), ben:none, exp:none)),
 cat> (inf_clause, vsem:(agent:Subj, exp:Subj)).
 %cat> (inf_clause, vsem:(InfC, vform:base, agent:Subj, theme:(theme, obj:none, action:Basev), ben:none, exp:Subj)).
 
