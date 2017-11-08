@@ -84,10 +84,10 @@ promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(theme, obj:Obj,
 %Rules
 %s->np+vp
 s_rule rule
-(s, mood:(indicative, tense:past))
+(s, mood:(Mood, tense:past))
 ===>
 cat> (np, nsem:Subj),
-cat> (vp, vsem:(vform:fin, agent:Subj, exp:Subj)).
+cat> (vp, mood:(Mood, tense:past), tenvsem:(vform:fin, agent:Subj, exp:Subj)).
 
 %np->det+n
 det_rule rule
