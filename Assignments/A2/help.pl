@@ -34,21 +34,22 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 
 		% semantics for verbs
 		v_sem sub [prefer, persuade, promise, expect, sleep]
-		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
+		      intro [vform:verbform, role:role].   % This should not be empty!  Fill in features for this and
 						%Features
-						n_sem_or_none sub [n_sem, gap, none].
-							none sub [].
-						theme_or_none sub [theme, none].
-							theme sub []  intro [obj:nsem, action:vsem].
-						verbform sub [base, fin].
-							base sub [].
-							fin sub [].
+						role sub [] intro [agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].
+							n_sem_or_none sub [n_sem, gap, none].
+								none sub [].
+							theme_or_none sub [theme, none].
+								theme sub []  intro [obj:nsem, action:vsem].
+							verbform sub [base, fin].
+								base sub [].
+								fin sub [].
                                   %  the following subtypes:
-			prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none].
-			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none].
-			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none].
-			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none].
-			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem].
+			prefer sub [] intro [vform:verbform, role:(agent:n_sem, theme:theme, ben:none, exp:none)].
+			persuade sub [] intro [vform:verbform, role:(agent:n_sem, theme:theme, ben:n_sem, exp:none)].
+			promise sub [] intro [vform:verbform, role:(agent:n_sem, theme:theme, ben:n_sem, exp:none)].
+			expect sub []  intro [vform:verbform, role:(agent:n_sem, theme:theme, ben:none, exp:none)].
+			sleep sub [] intro [vform:verbform, role:(agent:none, theme:none, ben:none, exp:n_sem)].
 
 		% semantics for nouns
 		n_sem sub [student, teacher, gap] intro [amt:amount].
@@ -87,7 +88,7 @@ s_rule rule
 (s, mood:(Mood, tense:past), vsem:Vpast)
 ===>
 cat> (np, nsem:Subj),
-cat> (vp, mood:(Mood, tense:past), vsem:(vform:fin, agent:Subj, exp:Subj)).
+cat> (vp, mood:(Mood, tense:past), vsem:(vform:fin, role:(agent:Subj)).
 
 %np->det+n
 det_rule rule
@@ -113,7 +114,7 @@ cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj, exp:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none)),
+cat> (v, vsem:(vform:fin, role:(agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none))),
 cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:none, action:Basev), ben:none, exp:Subj)).
 
 %inf_c->to+v
