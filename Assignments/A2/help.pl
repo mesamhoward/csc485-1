@@ -46,10 +46,10 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 						inf sub [].
 
 								  %  the following subtypes:
-			prefer sub [] intro [agent:nsem, theme:vproj_or_none, ben:none, exp:none].
-			persuade sub [] intro [agent:nsem, theme:vproj_or_none, ben:nsem, exp:none].
-			promise sub [] intro [agent:nsem, theme:vproj_or_none, ben:sem, exp:none].
-			expect sub [] intro [agent:nsem, theme:vproj_or_none, ben:none, exp:none].
+			prefer sub [] intro [agent:nsem, theme:theme_or_none, ben:none, exp:none].
+			persuade sub [] intro [agent:nsem, theme:theme_or_none, ben:nsem, exp:none].
+			promise sub [] intro [agent:nsem, theme:theme_or_none, ben:sem, exp:none].
+			expect sub [] intro [agent:nsem, theme:theme_or_none, ben:none, exp:none].
 			sleep sub [] intro [agent:none, theme:none, ben:none, exp:nsem].
 
 		% semantics for nouns
