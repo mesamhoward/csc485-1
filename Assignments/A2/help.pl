@@ -87,7 +87,7 @@ s_rule rule
 (s, mood:(Mood, tense:past))
 ===>
 cat> (np, nsem:Subj),
-cat> (vp, mood:(Mood, tense:past), tenvsem:(vform:fin, agent:Subj, exp:Subj)).
+cat> (vp, mood:(Mood, tense:past), vsem:(vform:fin, agent:Subj, exp:Subj)).
 
 %np->det+n
 det_rule rule
