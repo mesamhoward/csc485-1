@@ -14,7 +14,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 	cat sub [vproj,np].
 		vproj sub [inf_clause,s,vp] intro [mood:mood].
 			s intro [mood:indicative].
-            inf_clause intro [mood:infinitive, rec:subj].
+            inf_clause intro [mood:infinitive, rec:nsem].
 			vp intro [mood:indicative].
 		np sub [].
 
@@ -40,7 +40,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 						n_sem_or_none sub [nsem, gap, none].
 							none sub [].
 						theme_or_none sub [theme, none].
-							theme sub []  intro [obj:nsem, action:vsem].
+							theme sub []  intro [obj:n_sem_or_none, action:vsem].
 						verbform sub [base, fin].
 							base sub [].
 							fin sub [].
@@ -70,8 +70,8 @@ teachers ---> (n, nsem:(teacher, amt:pl)).
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp, pass:none)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:none, theme:none, ben:none, exp:Exp, pass:none)).
 
-expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:Theme, ben:none, exp:none, pass:Agent)).
-expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none, pass:Agent)).
+expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:Agent)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:Agent)).
 
 prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:Theme, ben:none, exp:none, pass:Agent)).
 preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:Theme, ben:none, exp:none, pass:Agent)).
@@ -115,12 +115,14 @@ vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none, pass:Pass)),
-cat> (inf_clause, mood:Mood, rec:Pass, vsem:InfSem).
+cat> inf_clause.
+%(inf_clause, mood:Mood, rec:Pass, vsem:Bsem).
 
 %inf_c->to+v
 %Bsem=base sem
 infrule rule
 (inf_clause, mood:Mood, rec:Subj, vsem:Bsem)
 ===>
-cat> toinf,
+cat> toinf.
 cat> (v, vsem:(Bsem, vform:base, exp:Subj)).
+% vform:base, iexp:Subj)).
