@@ -168,22 +168,24 @@ infobjrule rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
 cat> toinf,
-cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:none, exp:none)),
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:none, exp:none, pass:object)),
 cat> (np, nsem:(Obj)),
 cat> (inf_clause, rec:Obj).
 
-%ben and pass obj
-%vpobjrule_ben rule
-%(vp, vsem:(Vpast, vform:fin, agent:Subj))
-%===>
-%cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
-%cat> (np, nsem:(Obj)),
-%cat> (inf_clause, rec:Obj).
+ben and pass obj
+vpobjrule_ben rule
+(vp, vsem:(Vpast, vform:fin, agent:Subj))
+===>
+cat> toinf,
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
+cat> (np, nsem:(Obj)),
+cat> (inf_clause, rec:Obj).
 
-%ben and pass subj
-%vpsubjrule rule
-%(vp, vsem:(Vpast, vform:fin, agent:Subj))
-%===>
-%cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
-%cat> (np, nsem:(Subj)),
-%cat> (inf_clause, rec:Subj).
+ben and pass subj
+vpsubjrule rule
+(vp, vsem:(Vpast, vform:fin, agent:Subj))
+===>
+cat> toinf,
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
+cat> (np, nsem:(Obj)),
+cat> (inf_clause, rec:Subj).
