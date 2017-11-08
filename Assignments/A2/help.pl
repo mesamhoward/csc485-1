@@ -14,8 +14,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 	cat sub [vproj,np].
 		vproj sub [inf_clause,s,vp] intro [mood:mood].
 			s intro [mood:indicative].
-            inf_clause intro [mood:infinitive, pass:type].
-				type sub [] intro [subj:nsem, obj:nsem]
+            inf_clause intro [mood:infinitive, rec:n_sem].
 			vp intro [mood:indicative].
 		np sub [].
 
@@ -114,8 +113,8 @@ cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Gap, action:Lol), ben:none, exp:none)),
-cat> (inf_clause, vsem:(rec:Subj)).
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Lol), ben:none, exp:none)),
+cat> (inf_clause, rec:Subj).
 
 %inf_c->to+v
 infrule rule
