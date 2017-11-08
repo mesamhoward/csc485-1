@@ -112,7 +112,7 @@ v_rule rule
 cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 
 %VP->V+inf_clause
-%Expected and preffered
+%no ben
 vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
@@ -150,3 +150,11 @@ infrule rule
 ===>
 cat> toinf,
 cat> (v, vsem:(vform:base, exp:Subj)).
+
+%inf_c->to+v+inf
+infrule rule
+(inf_clause, rec:Subj)
+===>
+cat> toinf,
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:gap, action:InfSem), ben:none, exp:none)),
+cat> (inf_clause, rec:subj).
