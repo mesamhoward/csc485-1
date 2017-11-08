@@ -165,10 +165,10 @@ cat> (inf_clause, rec:Subj).
 
 %no ben and pass obj
 infobjrule rule
-(vp, vsem:(Vpast, vform:fin, agent:Subj))
+(inf_clause, rec:Subj)
 ===>
 cat> toinf,
-cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:none, exp:none)),
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:none, exp:none, pass:object)),
 cat> (np, nsem:(Obj)),
 cat> (inf_clause, rec:Obj).
 
