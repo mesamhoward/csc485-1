@@ -1,4 +1,4 @@
-:- ale_flag(subtypecover,_,off).i
+:- ale_flag(subtypecover,_,off).
 :- discontiguous sub/2,intro/2.
 
 bot sub [mood, tense, sem, cat, pos, verbal, nominal].
@@ -43,15 +43,15 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 						verbform sub [base, fin].
 							base sub [].
 							fin sub [].
-						type sub [subject, object, none].
+						type sub [object, subject, none].
 							object sub [].
-							subje sub [].
+							subject sub [].
                                   %  the following subtypes:
-			%prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:object].
+			prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:object].
 			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:object].
-			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:type].
-			%expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:object].
-			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem, pass:type.
+			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:subject].
+			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:object].
+			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem, pass:none.
 
 		% semantics for nouns
 		n_sem sub [student, teacher] intro [amt:amount].
@@ -72,17 +72,17 @@ teachers ---> (n, nsem:(teacher, amt:pl)).
 sleep ---> (v, vsem:(sleep, vform:base, agent:none, theme:none, ben:none, exp:Exp, pass:none)).
 slept ---> (v, vsem:(sleep, vform:fin, agent:none, theme:none, ben:none, exp:Exp, pass:none)).
 
-%expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
-%expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
+expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
+expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
 
-%prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:(Theme, obj:Obj, action Act), ben:none, exp:none, pass:object)).
-%preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
+prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:(Theme, obj:Obj, action Act), ben:none, exp:none, pass:object)).
+preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
 
-%persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
+persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
 persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
 
-%promise ---> (v, vsem:(promise, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none)).
-promised ---> (v, vsem:(promise, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:subject)).
+promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
+promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
 
 %Rules
 %s->np+vp
@@ -124,11 +124,11 @@ cat> (inf_clause, rec:Subj).
 vpobjrule rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:none, exp:none, pass:object)),
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:(none), exp:none, pass:object)),
 cat> (np, nsem:(Obj)),
 cat> (inf_clause, rec:Obj).
 
-ben and pass obj
+%ben and pass obj
 vpobjrule_ben rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
@@ -136,18 +136,9 @@ cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben
 cat> (np, nsem:(Obj)),
 cat> (inf_clause, rec:Obj).
 
-%ben and pass subj
-%vpsubjrule rule
-%(vp, vsem:(Vpast, vform:fin, agent:Subj))
-%===>
-%cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
-%cat> (np, nsem:(Subj)),
-%cat> (inf_clause, rec:Subj).
-
 %inf_c->to+v
 infrule rule
 (inf_clause, rec:Subj)
 ===>
 cat> toinf,
 cat> (v, vsem:(vform:base, exp:Subj)).
-
