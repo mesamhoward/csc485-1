@@ -14,7 +14,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 	cat sub [vproj,np].
 		vproj sub [inf_clause,s,vp] intro [mood:mood].
 			s intro [mood:indicative].
-            inf_clause intro [mood:infinitive, rec:n_sem].
+            inf_clause intro [mood:infinitive, pass:type].
+				type sub [] intro [subj:nsem, obj:nsem]
 			vp intro [mood:indicative].
 		np sub [].
 
@@ -51,7 +52,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem].
 
 		% semantics for nouns
-		n_sem sub [student, teacher, gap] intro [amt:amount].
+		n_sem sub [student, teacher] intro [amt:amount].
 			amount sub [sg, pl].
 			student sub [].
 			teacher sub [].
@@ -113,14 +114,13 @@ cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none)),
-cat> (inf_clause).
-%(inf_clause, mood:Mood, vsem:Bsem).
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Gap, action:Lol), ben:none, exp:none)),
+cat> (inf_clause, vsem:(rec:Subj)).
 
 %inf_c->to+v
-%Bsem=base sem
 infrule rule
 (inf_clause, rec:Subj)
 ===>
 cat> toinf,
 cat> (v, vsem:(vform:base, exp:Subj)).
+
