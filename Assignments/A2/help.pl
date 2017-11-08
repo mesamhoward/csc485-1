@@ -90,7 +90,11 @@ s_rule rule
 (s, mood:(Mood, tense:past), vsem:VPastSem)
 ===>
 cat> (np, nsem:Subj),
+<<<<<<< HEAD
 cat> (vp, mood:(Mood, tense:past), vsem:(VPastSem, vform:fin, agent:Subj, exp:Subj)).
+=======
+cat> (vp, mood:(Mood, tense:past), tenvsem:(vform:fin, agent:Subj, exp:Subj)).
+>>>>>>> parent of 37d1cf8... fixed vsem
 
 %np->det+n
 det_rule rule
