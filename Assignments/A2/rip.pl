@@ -113,6 +113,13 @@ v_rule rule
 ===>
 cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 
+%%%%%%%VP->V+NP
+vtoinf rule
+(vp, vsem:(Vpast, vform:fin, agent:Subj))
+===>
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:gap), ben:none, exp:none)),
+cat> (np, nsem:Obj).
+
 %%%%%%%VP->V+inf_clause
 %no ben
 vtoinf rule
