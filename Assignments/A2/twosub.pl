@@ -37,10 +37,10 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 		v_sem sub [prefer, persuade, promise, expect, sleep]
 		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none, pass:type].   % This should not be empty!  Fill in features for this and
 						%Features
-						n_sem_or_none sub [n_sem, gap, none].
+						n_sem_or_none sub [n_sem, none].
 							none sub [].
 						theme_or_none sub [theme, none].
-							theme sub []  intro [obj:n_sem_or_none, action:vsem].
+							theme sub []  intro [obj:n_sem_or_none, action:inf_clause].
 						verbform sub [base, fin].
 							base sub [].
 							fin sub [].
@@ -96,14 +96,7 @@ vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Subj, action:InfSem), ben:none, exp:none)),
-cat> (inf_clause, rec:Subj).
-
-%%%%%%%VP->V+NP
-vtoinf rule
-(vp, vsem:(Vpast, vform:fin, agent:Subj))
-===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:gap), ben:none, exp:none)),
-cat> (np, nsem:Obj).
+cat> (InfSem, mood:infinitive, rec:Subj).
 
 %%%%%%VP->V+to+inf
 %no ben and pass obj
