@@ -20,4 +20,4 @@ iii. The student expected the teacher to sleep
         Experiencer: the teacher
     Expected
         Agent: the student
-        Theme: the teacher the teacher
+        Theme: the teacher to sleep
