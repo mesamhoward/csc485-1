@@ -51,7 +51,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:object].
 			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:subject].
 			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:object].
-			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem, pass:none.
+			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem, pass:none].
 
 		% semantics for nouns
 		n_sem sub [student, teacher] intro [amt:amount].
@@ -173,17 +173,19 @@ cat> (np, nsem:(Obj)),
 cat> (inf_clause, rec:Obj).
 
 %ben and pass obj
-%vpobjrule_ben rule
-%(vp, vsem:(Vpast, vform:fin, agent:Subj))
-%===>
-%cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
-%cat> (np, nsem:(Obj)),
-%cat> (inf_clause, rec:Obj).
+vpobjrule_ben rule
+(inf_clause, rec:Subj)
+===>
+cat> toinf,
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
+cat> (np, nsem:(Obj)),
+cat> (inf_clause, rec:Obj).
 
 %ben and pass subj
-%vpsubjrule rule
-%(vp, vsem:(Vpast, vform:fin, agent:Subj))
-%===>
-%cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
-%cat> (np, nsem:(Subj)),
-%cat> (inf_clause, rec:Subj).
+vpsubjrule rule
+(inf_clause, rec:Subj)
+===>
+cat> toinf,
+cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
+cat> (np, nsem:(Subj)),
+cat> (inf_clause, rec:Subj).
