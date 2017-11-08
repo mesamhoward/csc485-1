@@ -19,15 +19,6 @@ np sub [] intro [case:type, head:n].
 		nom sub [].
 		acc sub [].
 
-%%Lexicon
-she ---> (np, case:nom, head:(number:sg)).
-fed ---> v.
-the ---> det.
-dog ---> (n, number:sg).
-puppies ---> (n, number:pl).
-him ---> (np, case:acc, head:(number:sg)).
-with ---> p.
-
 %%rules
 
 %%s -> NP VP
@@ -79,3 +70,12 @@ cat> det,
 cat> n,
 cat> pp.
 
+
+%%Lexicon
+dog ---> (n, number:sg).
+fed ---> v.
+him ---> (np, case:acc, head:(number:sg)).
+puppies ---> (n, number:pl).
+she ---> (np, case:nom, head:(number:sg)).
+the ---> det.
+with ---> p.

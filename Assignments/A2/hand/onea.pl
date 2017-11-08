@@ -21,15 +21,6 @@ npl sub [].
 
 det sub [].
 
-%Lexicon
-she ---> pronom.
-fed ---> v.
-the ---> det.
-dog ---> nsg.
-puppies ---> npl.
-him ---> proacc.
-with ---> p.
-
 %Rules
 srule rule
 s
@@ -110,3 +101,12 @@ np_plrule rule
 n
 ===>
 cat> npl.
+
+%Lexicon
+dog ---> nsg.
+fed ---> v.
+him ---> proacc.
+puppies ---> npl.
+she ---> pronom.
+the ---> det.
+with ---> p.
