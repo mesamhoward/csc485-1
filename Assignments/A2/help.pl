@@ -120,7 +120,7 @@ cat> (inf_clause, vsem:(Infsem, agent:Subj, exp:Subj)).
 %inf_c->to+v
 %Bsem=base sem
 infrule rule
-(inf_clause, vsem:(Bsem, agent:Subj, exp:Subj))
+(inf_clause, mood:Mood, vsem:(Bsem, agent:Subj, exp:Subj))
 ===>
 cat> toinf,
 cat> (v, vsem:(Bsem, vform:base, agent:none, theme:none, ben:none, exp:Subj)).
