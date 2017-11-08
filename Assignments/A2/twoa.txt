@@ -4,7 +4,7 @@ i. The student persuaded the teacher to sleep
         Experiencer: the teacher
     Persuaded
         Agent: the student
-        Theme: to sleep
+        Theme: the teacher to sleep
         Beneficiary: the teacher
 
 ii. The student promised the teacher to sleep
@@ -12,7 +12,7 @@ ii. The student promised the teacher to sleep
         Experiencer: the student
     Promised
         Agent: the student
-        Theme: to sleep
+        Theme: the teacher to sleep
         Beneficiary: the teacher
 
 iii. The student expected the teacher to sleep 
@@ -20,4 +20,4 @@ iii. The student expected the teacher to sleep
         Experiencer: the teacher
     Expected
         Agent: the student
-        Theme: the teacher
+        Theme: the teacher the teacher
