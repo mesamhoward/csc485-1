@@ -33,28 +33,28 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 	sem sub [v_sem, n_sem].
 
 		% semantics for verbs
-		v_sem sub [prefer, persuade, promise, expect, sleep, inf]
+		v_sem sub [prefer, persuade, promise, expect, sleep]
 		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
-				theme sub [] intro [obj:n_sem_or_none, action:vsem].
-				verbform sub [base, fin].
-					base sub [].
-					fin sub [].
+						%Features
+						n_sem_or_none sub [n_sem, gap, none].
+							none sub [].
+						theme_or_none sub [theme, none].
+						theme sub [] intro [obj:n_sem_or_none, action:vsem].
+						verbform sub [base, fin].
+							base sub [].
+							fin sub [].
                                   %  the following subtypes:
-			prefer sub [].
-			persuade sub [].
-			promise sub [].
-			expect sub [].
-			sleep sub [].
-			inf sub [].
+			prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme_or_none, ben:none, exp:none].
+			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme_or_none, ben:n_sem, exp:none].
+			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme_or_none, ben:n_sem, exp:none].
+			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme_or_none, ben:none, exp:none].
+			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem].
 
 		% semantics for nouns
 		n_sem sub [student, teacher] intro [amt:amount].
 			amount sub [sg, pl].
 			student sub [].
 			teacher sub [].
-		n_sem_or_none sub [n_sem, gap, none].
-			none sub [].
-		theme_or_none sub [theme, none].
 
 %Lexicon
 
