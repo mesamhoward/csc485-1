@@ -37,7 +37,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 				%Pass=the NP that will serve as the Agent/Experiencer
 		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none, pass:n_sem_or_none].   % This should not be empty!  Fill in features for this and
 						%Features
-						n_sem_or_none sub [n_sem, gap, none].
+						n_sem_or_none sub [nsem, gap, none].
 							none sub [].
 						theme_or_none sub [theme, none].
 							theme sub []  intro [obj:nsem, action:vsem].
