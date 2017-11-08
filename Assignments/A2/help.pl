@@ -81,8 +81,8 @@ preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(Theme, obj:Obj, 
 persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
 persuaded ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
 
-promise ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
-promised ---> (v, vsem:(persuade, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
+promise ---> (v, vsem:(promise, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:subject)).
+promised ---> (v, vsem:(promise, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:subject)).
 
 %Rules
 %s->np+vp
