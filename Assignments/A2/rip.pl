@@ -39,7 +39,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 						n_sem_or_none sub [n_sem, gap, none].
 							none sub [].
 						theme_or_none sub [theme, none].
-							theme sub []  intro [obj:n_sem_or_none, action:vsem].
+							theme sub []  intro [obj:n_sem_or_none, action:v_sem].
 						verbform sub [base, fin].
 							base sub [].
 							fin sub [].
@@ -48,7 +48,7 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 							subject sub [].
                                   %  the following subtypes:
 			prefer sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:object].
-			persuade sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:object].
+			persuade sub [] intro [vform:verbform, agent:n_sem, theme:(theme, obj:n_sem, action:v_sem), ben:n_sem, exp:none, pass:object].
 			promise sub [] intro [vform:verbform, agent:n_sem, theme:theme, ben:n_sem, exp:none, pass:subject].
 			expect sub []  intro [vform:verbform, agent:n_sem, theme:theme, ben:none, exp:none, pass:object].
 			sleep sub [] intro [vform:verbform, agent:none, theme:none, ben:none, exp:n_sem, pass:none].
