@@ -157,4 +157,4 @@ infrule rule
 ===>
 cat> toinf,
 cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:gap, action:InfSem), ben:none, exp:none)),
-cat> (inf_clause, rec:subj).
+cat> (inf_clause, rec:Subj).
