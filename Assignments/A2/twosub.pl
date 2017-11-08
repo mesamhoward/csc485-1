@@ -105,7 +105,7 @@ vpobjrule rule
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:(none), exp:none, pass:object)),
 cat> (np, nsem:(Obj)),
-cat> (inf_clause, rec:Obj).
+cat> (InfSem, mood:infinitive, rec:Obj).
 
 %ben and pass obj
 vpobjrule_ben rule
@@ -113,7 +113,7 @@ vpobjrule_ben rule
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
 cat> (np, nsem:(Obj)),
-cat> (inf_clause, rec:Obj).
+cat> (InfSem, mood:infinitive, rec:Obj).
 
 %ben and pass subj
 vpsubjrule rule
@@ -121,7 +121,7 @@ vpsubjrule rule
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
 cat> (np, nsem:(Subj)),
-cat> (inf_clause, rec:Subj).
+cat> (InfSem, mood:infinitive, rec:Subj).
 
 %%%%%%%%%inf_c->to+v
 infrule rule
@@ -136,7 +136,7 @@ infrule rule
 ===>
 cat> toinf,
 cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Subj, action:InfSem), ben:none, exp:none)),
-cat> (inf_clause, rec:Subj).
+cat> (InfSem, mood:infinitive, rec:Subj).
 
 %%%%%%%%%%inf_c->to+v+n+inf
 
@@ -147,7 +147,7 @@ infobjrule rule
 cat> toinf,
 cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:none, exp:none, pass:object)),
 cat> (np, nsem:(Obj)),
-cat> (inf_clause, rec:Obj).
+cat> (InfSem, mood:infinitive, rec:Obj).
 
 %ben and pass obj
 vpobjrule_ben rule
@@ -156,7 +156,7 @@ vpobjrule_ben rule
 cat> toinf,
 cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:object)),
 cat> (np, nsem:(Obj)),
-cat> (inf_clause, rec:Obj).
+cat> (InfSem, mood:infinitive, rec:Obj).
 
 %ben and pass subj
 vpsubjrule rule
@@ -165,7 +165,7 @@ vpsubjrule rule
 cat> toinf,
 cat> (v, vsem:(vform:base, agent:Subj, theme:(theme, obj:Obj, action:InfSem), ben:Obj, exp:none, pass:subject)),
 cat> (np, nsem:(Subj)),
-cat> (inf_clause, rec:Subj).
+cat> (InfSem, mood:infinitive, rec:Subj).
 
 %Lexicon
 
