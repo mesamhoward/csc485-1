@@ -75,7 +75,7 @@ slept ---> (v, vsem:(sleep, vform:fin, agent:none, theme:none, ben:none, exp:Exp
 expect ---> (v, vsem:(expect, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
 expected ---> (v, vsem:(expect, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
 
-prefer ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
+prefer ---> (v, vsem:(prefer, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
 preferred ---> (v, vsem:(prefer, vform:fin, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:none, exp:none, pass:object)).
 
 persuade ---> (v, vsem:(persuade, vform:base, agent:Agent, theme:(Theme, obj:Obj, action:Act), ben:Ben, exp:none, pass:object)).
