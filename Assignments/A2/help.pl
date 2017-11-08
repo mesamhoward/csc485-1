@@ -114,13 +114,13 @@ vtoinf rule
 (vp, vsem:(Vpast, vform:fin, agent:Subj, exp:Subj))
 ===>
 cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none)),
-cat> (inf_clause, vsem:(Infsem, agent:Subj, exp:Subj)).
+cat> (inf_clause, vsem:(exp:Subj)).
 %cat> (inf_clause, vsem:(InfC, vform:base, agent:Subj, theme:(theme, obj:none, action:Basev), ben:none, exp:Subj)).
 
 %inf_c->to+v
 %Bsem=base sem
 infrule rule
-(inf_clause, mood:Mood, vsem:(Bsem, exp:Subj)
+(inf_clause, mood:Mood, vsem:(exp:Subj)
 ===>
 cat> toinf,
-cat> (v, vsem:(Bsem, vform:base, agent:none, theme:none, ben:none, exp:Subj)).
+cat> (v, vsem:(vform:base, exp:Subj)).
