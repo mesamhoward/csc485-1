@@ -33,26 +33,6 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 	sem sub [v_sem, n_sem].
 
 		% semantics for verbs
-<<<<<<< HEAD
-		v_sem sub [prefer, persuade, promise, expect, sleep]
-		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
-					%features
-					verbform sub [base, fin].
-					base sub [].
-					fin sub [].
-					n_sem_or_none sub [nsem, none].
-						none sub [].
-					theme_or_none sub [obj_inf, inf, none] intro [action:inf_clause].
-						obj_inf sub [] intro [obj:nsem].
-						inf sub [].
-
-								  %  the following subtypes:
-			prefer sub [] intro [agent:nsem, theme:theme_or_none, ben:none, exp:none].
-			persuade sub [] intro [agent:nsem, theme:theme_or_none, ben:nsem, exp:none].
-			promise sub [] intro [agent:nsem, theme:theme_or_none, ben:nsem, exp:none].
-			expect sub [] intro [agent:nsem, theme:theme_or_none, ben:none, exp:none].
-			sleep sub [] intro [agent:none, theme:none, ben:none, exp:nsem].
-=======
 		v_sem sub [prefer, persuade, promise, expect, sleep, inf]
 		      intro [vform:verbform, agent:n_sem_or_none, theme:theme_or_none, ben:n_sem_or_none, exp:n_sem_or_none].   % This should not be empty!  Fill in features for this and
 				theme sub [] intro [obj:n_sem_or_none, action:vsem].
@@ -66,7 +46,6 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal].
 			expect sub [].
 			sleep sub [].
 			inf sub [].
->>>>>>> parent of 00c93a3... redid vsem
 
 		% semantics for nouns
 		n_sem sub [student, teacher] intro [amt:amount].
