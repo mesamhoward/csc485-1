@@ -112,15 +112,15 @@ cat> (v, vsem:(vform:fin, agent:none, exp:Subj)).
 %VP->V+inf_clause
 %Expected and preffered
 vtoinf rule
-(vp, vsem:(Vpast, vform:fin, agent:Subj, exp:Subj))
+(vp, vsem:(Vpast, vform:fin, agent:Subj))
 ===>
-cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none)),
-cat> (inf_clause, vsem:(vform:base, agent:Subj, theme:(theme, obj:none, action:Basev), ben:none, exp:Subj)).
+cat> (v, vsem:(vform:fin, agent:Subj, theme:(theme, obj:gap, action:Infsem), ben:none, exp:none, pass:Pass)),
+cat> (inf_clause, mood:Mood, rec:Pass, vsem:InfSem).
 
 %inf_c->to+v
 %Bsem=base sem
 infrule rule
-(inf_clause, mood:Mood, rec:subj, vsem:Bsem)
+(inf_clause, mood:Mood, rec:Subj, vsem:Bsem)
 ===>
 cat> toinf,
 cat> (v, vsem:(Bsem, vform:base, exp:Subj)).
