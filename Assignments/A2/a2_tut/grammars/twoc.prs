@@ -1,0 +1,86 @@
+<'the student persuaded the teacher to sleep'
+{ :'s_rule:the student persuaded the teacher to sleep'
+    s(
+        mood: $3 = indicative(
+            tense: past),
+        vsem: v_sem(
+            agent: n_sem_or_none,
+            ben: n_sem_or_none,
+            exp: n_sem_or_none,
+            pass: type,
+            theme: theme_or_none,
+            vform: verbform))
+    { :'det_rule:the student'
+        np(
+            nsem: $4 = n_sem(
+                amt: amount))
+        { :'lexicon:the'
+            det
+        }
+        { :'lexicon:student'
+            n(
+                nsem: student(
+                    amt: sg))
+        }
+    }
+    { :'vpobjrule_ben//0:persuaded the teacher to sleep'
+        vp(
+            mood: $3,
+            vsem: v_sem(
+                agent: $4,
+                ben: n_sem_or_none,
+                exp: $4,
+                pass: type,
+                theme: theme_or_none,
+                vform: fin))
+        { :'lexicon:persuaded'
+            v(
+                vsem: persuade(
+                    agent: $4,
+                    ben: $6 = n_sem(
+                        amt: amount),
+                    exp: none,
+                    pass: object,
+                    theme: theme(
+                        action: $11 = inf_clause(
+                            mood: infinitive,
+                            rec: $6,
+                            vsem: 'mgsat(v_sem)'),
+                        obj: $6),
+                    vform: fin))
+        }
+        { :'det_rule:the teacher'
+            np(
+                nsem: $6)
+            { :'lexicon:the'
+                det
+            }
+            { :'lexicon:teacher'
+                n(
+                    nsem: teacher(
+                        amt: sg))
+            }
+        }
+        { :'infrule//0:to sleep'
+            inf_clause(
+                mood: infinitive,
+                rec: $6,
+                vsem: 'mgsat(v_sem)')
+            { :'lexicon:to'
+                toinf
+            }
+            { :'lexicon:sleep'
+                v(
+                    vsem: sleep(
+                        agent: none,
+                        ben: none,
+                        exp: $6,
+                        pass: none,
+                        theme: none,
+                        vform: base))
+            }
+        }
+    }
+}
+>
+
