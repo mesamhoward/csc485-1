@@ -25,7 +25,7 @@ np sub [] intro [case:type, head:n].
 srule rule
 s
 ===>
-cat> (np, case:nom, head:(number:Number)),
+cat> (np, case:nom),
 cat> vp.
 
 %%VP -> V NP
@@ -33,14 +33,14 @@ vprule rule
 vp
 ===>
 cat> v,
-cat> (np, case:acc, head:(number:Number)).
+cat> (np, case:acc).
 
 %%PP -> P NP
 pprule rule
 pp
 ===>
 cat> p,
-cat> (np, case:acc, head:(number:Number)).
+cat> (np, case:acc).
 
 %%NP -> N
 nrule rule
