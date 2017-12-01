@@ -53,12 +53,18 @@ class PartialParse(object):
         self.arcs = []
 
     @property
+
+    #Question 1d
     def complete(self):
         '''bool: return true iff the PartialParse is complete
 
         Assume that the PartialParse is valid
         '''
         ### BEGIN STUDENT CODE
+        if self.next == len(self.sentence) and len(self.stack) == 1:
+            return True
+        else:
+            return False
         ### END STUDENT CODE
 
     def parse_step(self, transition_id, deprel=None):
@@ -128,7 +134,7 @@ class PartialParse(object):
         ### BEGIN STUDENT CODE
         ### END STUDENT CODE
         return deps
-
+#Question 1f
     def get_oracle(self, graph):
         '''Given a projective dependency graph, determine an appropriate trans
 
@@ -204,6 +210,7 @@ class PartialParse(object):
             self.parse_step(transition_id, deprel)
         return self.arcs
 
+#Question 1e
 def minibatch_parse(sentences, model, batch_size):
     """Parses a list of sentences in minibatches using a model.
 
