@@ -86,6 +86,22 @@ class PartialParse(object):
                 given the current state
         '''
         ### BEGIN STUDENT CODE
+        if transition_id not in [self.left_arc_id, self.right_arc_id, self.shift_id]:
+            raise ValueError('Transition ID not valid ID')
+        elif transition_id == self.shift_id and self.next == len(self.sentence):
+            raise ValueError('Trying to SHIFT on empty buffer')
+        elif len(self.stack) <= 1:
+            raise ValueError('Trying to create dependency on ROOT')
+
+        if transition_id == self.left_arc_id:
+            self.arcs.append((self.stack[-1], self.stack[-2], deprel))
+            self.stack.pop(-2)
+        elif transition_id == self.right_arc_id:
+            self.arcs.append((self.stack[-2], self.stack[-1], deprel))
+            self.stack.pop()
+        elif transition_id == self.shift_id:
+            self.stack.append(self.next)
+            self.next += 1
         ### END STUDENT CODE
 
 
@@ -109,6 +125,17 @@ class PartialParse(object):
                 1, etc.
         '''
         ### BEGIN STUDENT CODE
+        deps = []
+        steps = -1
+        if n:
+            steps = n
+        
+        for dep in self.arcs:
+            if n == 0:
+                break
+            elif dep[0] == sentence_idx:
+              deps.append(dep[1])
+              n -= 1  
         ### END STUDENT CODE
         return deps
 
@@ -132,6 +159,19 @@ class PartialParse(object):
                 1, etc.
         '''
         ### BEGIN STUDENT CODE
+        deps = []
+        steps = -1
+        if n:
+            steps = n
+
+        i = len(self.arcs) - 1
+        #loop backwards through self.arcs
+        while i >= 0:
+            if n == 0:
+                break
+            elif self.arcs[i][0] == sentence_idx:
+                deps.append(self.arcs[i][1])
+                n -= 1
         ### END STUDENT CODE
         return deps
 #Question 1f
@@ -490,7 +530,7 @@ word_5 tag_5 1 deprel_5
 
 if __name__ == '__main__':
     test_parse_steps()
-    test_parse()
-    test_leftmost_rightmost()
-    test_minibatch_parse()
-    test_oracle()
+    #test_parse()
+    #test_leftmost_rightmost()
+    #test_minibatch_parse()
+    #test_oracle()
