@@ -82,6 +82,11 @@ class ParserModel(Model):
         (Don't change the variable names)
         """
         ### BEGIN YOUR CODE
+        self.word_id_placeholder = tf.placeholder(tf.int32, shape=(None, n_word_features))
+        self.tag_id_placeholder = tf.placeholder(tf.int32, shape=(None, n_tag_features))
+        self.deprel_id_placeholder = tf.placeholder(tf.int32, shape=(None, n_deprel_features))
+        self.class_placeholder = tf.placeholder(tf.float32, shape=(None, n_classes))
+        self.dropout_placeholder = tf.placeholder(tf.float32, shape=(scalar))
         ### END YOUR CODE
 
     def create_feed_dict(
