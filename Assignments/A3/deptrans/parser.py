@@ -377,13 +377,16 @@ def minibatch_parse(sentences, model, batch_size):
                     (prediction[0] == pp.left_arc_id and len(pp.stack) == 2):
                         pass
                 else:
-                    pp.parse_step(prediction[0], prediction[1])
+                    try:
+                        pp.parse_step(prediction[0], prediction[1])
+                    except(ValueError):
+                        unfinished_parses.remove(i)
 
         #remove completed parses
         for i in range(len(partial_parses)):
             if i in unfinished_parses and partial_parses[i].complete:
                 unfinished_parses.remove(i)
-            else:
+            elif i in unfinished_parses:
                 arcs.append(partial_parses[i].arcs)
     ### END YOUR CODE
     return arcs
