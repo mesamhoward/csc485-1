@@ -54,7 +54,7 @@ class PartialParse(object):
 
     @property
 
-    #Question 1d
+#Question 1d
     def complete(self):
         '''bool: return true iff the PartialParse is complete
 
@@ -86,13 +86,19 @@ class PartialParse(object):
                 given the current state
         '''
         ### BEGIN STUDENT CODE
+        #Checking for Errors
         if transition_id not in [self.left_arc_id, self.right_arc_id, self.shift_id]:
             raise ValueError('Transition ID not valid ID')
-        elif transition_id == self.shift_id and self.next == len(self.sentence):
+        elif transition_id == self.shift_id \
+                and self.next == len(self.sentence):
             raise ValueError('Trying to SHIFT on empty buffer')
-        elif len(self.stack) <= 1:
-            raise ValueError('Trying to create dependency on ROOT')
-
+        elif transition_id in [self.left_arc_id, self.right_arc_id] \
+             and len(self.stack) == 1:
+             raise ValueError('Trying to create dependency on ROOT')
+        elif transition_id == self.left_arc_id and len(self.stack) == 2:
+            raise ValueError('Trying to call LEFT-ARC on ROOT')
+        
+        #matching transition ids
         if transition_id == self.left_arc_id:
             self.arcs.append((self.stack[-1], self.stack[-2], deprel))
             self.stack.pop(-2)
@@ -127,15 +133,17 @@ class PartialParse(object):
         ### BEGIN STUDENT CODE
         deps = []
         steps = -1
-        if n:
+        #checking if n is not null
+        if n or n == 0:
             steps = n
         
         for dep in self.arcs:
-            if n == 0:
+            #if steps == 0 then that means deps has the number of depedencies needed
+            if steps == 0:
                 break
             elif dep[0] == sentence_idx:
               deps.append(dep[1])
-              n -= 1  
+              steps -= 1  
         ### END STUDENT CODE
         return deps
 
@@ -161,17 +169,19 @@ class PartialParse(object):
         ### BEGIN STUDENT CODE
         deps = []
         steps = -1
-        if n:
+        if n or n == 0:
             steps = n
 
         i = len(self.arcs) - 1
         #loop backwards through self.arcs
         while i >= 0:
-            if n == 0:
+            #if n == 0 then that means deps has the number of depedencies needed
+            if steps == 0:
                 break
             elif self.arcs[i][0] == sentence_idx:
                 deps.append(self.arcs[i][1])
-                n -= 1
+                steps -= 1
+            i -= 1
         ### END STUDENT CODE
         return deps
 #Question 1f
@@ -225,10 +235,70 @@ class PartialParse(object):
             assume that a valid move exists that heads towards the
             target graph
         '''
+        #helper function to find deprels
+        def find_deprl(node, dep_indx):
+            """
+                node = the node that you want to find the deprls of
+                dep_indx = the index of the dependency you want
+
+                return the correct dependency relation of the given dependence
+            """
+            for deprl in list(node['deps']):
+                if dep_indx in node['deps'][deprl]:
+                    return deprl
+
         if self.complete:
             raise ValueError('PartialParse already completed')
         transition_id, deprel = -1, None
         ### BEGIN STUDENT CODE
+        self.sentence = get_sentence_from_graph(graph, include_root=True)
+        current = self.stack[-1]
+        
+        l_deps = get_left_deps(graph.nodes[current])
+        l_deps_list = [l for l in l_deps]
+
+        #find the direct left dependency in regards to the stack
+        dir_left_dep = None            
+        if len(l_deps_list) > 0:
+            while(len(l_deps_list) > 0):
+                left = max(l_deps_list)
+                if left in self.stack:
+                    dir_left_dep = left
+                    break
+                else:
+                    l_deps_list.remove(left)
+
+        r_deps = get_right_deps(graph.nodes[current])
+        r_deps_list = [r for r in r_deps]
+        #find whether the direct right dependency is still in the buffer
+        dir_right_dep = None            
+        if len(r_deps_list) > 0:
+            while(len(r_deps_list) > 0):
+                right = min(r_deps_list)
+                #Check that right is still in the buffer
+                if right >= self.next:
+                    dir_right_dep = right
+                    break
+                else:
+                    r_deps_list.remove(right)
+
+        head = graph.nodes[current]['head']
+        if not head:
+            head = 0 
+        #Take out left dependencies first
+        if dir_left_dep and len(self.stack) > 2 \
+            and current in self.stack:
+            deprl = find_deprl(graph.nodes[current], dir_left_dep)
+            transition_id, deprel = self.left_arc_id, deprl
+        #Take out right dependency if it doesn't have a right dependency
+        #or if it doesn't have a head that will try to call on it later
+        elif not dir_right_dep and head in self.stack and len(self.stack) > 1 \
+            and current in self.stack:
+            deprl = find_deprl(graph.nodes[head], current)
+            transition_id, deprel = self.right_arc_id, deprl
+        #SHIFT if the buffer sin't empty
+        elif len(self.sentence) != self.next:
+            transition_id = self.shift_id
         ### END STUDENT CODE
         return transition_id, deprel
 
@@ -280,6 +350,41 @@ def minibatch_parse(sentences, model, batch_size):
             arcs[i] should contain the arcs for sentences[i]).
     """
     ### YOUR CODE HERE
+    #Init pp
+    partial_parses = []
+    for sentence in sentences:
+        partial_parses.append(PartialParse(sentence))
+    
+    #Init indice array of unfinished parses
+    unfinished_parses = []
+    for pp in range(len(partial_parses)):
+        unfinished_parses.append(pp)
+    
+    arcs = []
+
+    while len(unfinished_parses) > 0:
+        minibatch = [partial_parses[i] for i in unfinished_parses[:batch_size]]
+        predictions = model.predict(minibatch)
+        #Perform parse step on each partial parse in minibatch w/ its predicted transitions
+        for i in range(len(minibatch)):
+            pp = minibatch[i]
+            prediction = predictions[i]
+
+            if prediction[0] in [pp.left_arc_id, pp.right_arc_id, pp.shift_id]:
+                if pp.complete or \
+                    (prediction[0] == pp.shift_id and pp.next == len(pp.sentence)) or \
+                    (prediction[0] in [pp.left_arc_id, pp.right_arc_id] and len(pp.stack) == 1) or \
+                    (prediction[0] == pp.left_arc_id and len(pp.stack) == 2):
+                        pass
+                else:
+                    pp.parse_step(prediction[0], prediction[1])
+
+        #remove completed parses
+        for i in range(len(partial_parses)):
+            if i in unfinished_parses and partial_parses[i].complete:
+                unfinished_parses.remove(i)
+            else:
+                arcs.append(partial_parses[i].arcs)
     ### END YOUR CODE
     return arcs
 
@@ -530,7 +635,7 @@ word_5 tag_5 1 deprel_5
 
 if __name__ == '__main__':
     test_parse_steps()
-    #test_parse()
-    #test_leftmost_rightmost()
-    #test_minibatch_parse()
-    #test_oracle()
+    test_parse()
+    test_leftmost_rightmost()
+    test_minibatch_parse()
+    test_oracle()
