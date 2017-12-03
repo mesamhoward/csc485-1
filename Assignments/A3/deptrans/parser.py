@@ -61,10 +61,7 @@ class PartialParse(object):
         Assume that the PartialParse is valid
         '''
         ### BEGIN STUDENT CODE
-        if self.next == len(self.sentence) and len(self.stack) == 1:
-            return True
-        else:
-            return False
+        return self.next == len(self.sentence) and len(self.stack) == 1
         ### END STUDENT CODE
 
     def parse_step(self, transition_id, deprel=None):
