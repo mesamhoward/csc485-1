@@ -31,8 +31,8 @@ def xavier_weight_init():
              	Xavier distribution.
         """
         ### BEGIN YOUR CODE
-        epsilon = np.sqrt(6 / sum(shape))
-        out = tf.random_uniform(shape, -epsilon, epsilon + 1)
+        epsilon = np.sqrt(6 / np.sum(shape))
+        out = tf.random_uniform(shape, minval=-epsilon, maxval=epsilon + 1)
         ### END YOUR CODE
         return out
     # Returns defined initializer function.
@@ -44,6 +44,11 @@ def test_initialization_basic():
     print("Running basic tests...")
     xavier_initializer = xavier_weight_init()
     shape = (1,)
+    xavier_mat = xavier_initializer(shape)
+    assert xavier_mat.get_shape() == shape
+
+    xavier_initializer = xavier_weight_init()
+    shape = (0, 900)
     xavier_mat = xavier_initializer(shape)
     assert xavier_mat.get_shape() == shape
 

@@ -82,11 +82,18 @@ class ParserModel(Model):
         (Don't change the variable names)
         """
         ### BEGIN YOUR CODE
-        self.word_id_placeholder = tf.placeholder(tf.int32, shape=(None, n_word_features))
-        self.tag_id_placeholder = tf.placeholder(tf.int32, shape=(None, n_tag_features))
-        self.deprel_id_placeholder = tf.placeholder(tf.int32, shape=(None, n_deprel_features))
-        self.class_placeholder = tf.placeholder(tf.float32, shape=(None, n_classes))
-        self.dropout_placeholder = tf.placeholder(tf.float32, shape=(scalar))
+        #the last ones are just the number of columns of x_batch.shape[-1]
+        #shape=(row, column)
+
+        self.word_id_placeholder = tf.placeholder(tf.int32, 
+                                        shape=(None, self.config.n_word_features))
+        self.tag_id_placeholder = tf.placeholder(tf.int32, 
+                                        shape=(None, self.config.n_tag_features))
+        self.deprel_id_placeholder = tf.placeholder(tf.int32, 
+                                        shape=(None, self.config.n_deprel_features))
+        self.class_placeholder = tf.placeholder(tf.float32, 
+                                        shape=(None, self.config.n_classes))
+        self.dropout_placeholder = tf.placeholder(tf.float32, shape=())
         ### END YOUR CODE
 
     def create_feed_dict(
@@ -115,6 +122,22 @@ class ParserModel(Model):
             feed_dict: The feed dictionary mapping from placeholders to values.
         """
         ### BEGIN YOUR CODE
+        feed_dict = {}
+        
+        if word_id_batch is not None:
+            feed_dict[self.word_id_placeholder] = word_id_batch
+        
+        if tag_id_batch is not None:
+            feed_dict[self.tag_id_placeholder] = tag_id_batch
+        
+        if deprel_id_batch is not None:
+            feed_dict[self.deprel_id_placeholder] = deprel_id_batch
+        
+        if class_batch is not None:
+            feed_dict[self.class_placeholder] = class_batch
+        
+        if dropout is not None:
+            feed_dict[self.dropout_placeholder] = dropout
         ### END YOUR CODE
         return feed_dict
 
@@ -150,6 +173,29 @@ class ParserModel(Model):
                 (None, n_deprel_features * embed_size)
         """
         ### BEGIN YOUR CODE
+        word_embeddings = tf.Variable(self.word_embeddings)
+
+        xavier_initializer = xavier_weight_init()
+        
+        tag_embeddings = tf.Variable(xavier_initializer(
+                            (self.config.n_tag_ids, self.config.embed_size)))
+        deprel_embeddings = tf.Variable(xavier_initializer(
+                            (self.config.n_deprel_ids, self.config.embed_size)))
+
+        word_embeddings = tf.nn.embedding_lookup(
+                            word_embeddings, self.word_id_placeholder)
+        word_embeddings = tf.reshape(word_embeddings, (
+            -1, self.config.n_word_features*self.config.embed_size))
+
+        tag_embeddings = tf.nn.embedding_lookup(
+                            tag_embeddings, self.tag_id_placeholder)
+        tag_embeddings = tf.reshape(tag_embeddings, (
+            -1, self.config.n_tag_features*self.config.embed_size))
+
+        deprel_embeddings = tf.nn.embedding_lookup(
+                            deprel_embeddings, self.deprel_id_placeholder)
+        deprel_embeddings = tf.reshape(deprel_embeddings, (
+            -1, self.config.n_deprel_features*self.config.embed_size))
         ### END YOUR CODE
         return word_embeddings, tag_embeddings, deprel_embeddings
 
@@ -187,6 +233,31 @@ class ParserModel(Model):
         """
         x_w, x_t, x_d = self.add_embeddings()
         ### BEGIN YOUR CODE
+        xavier_initialization = xavier_weight_init()
+        
+        W_w = tf.Variable(xavier_initialization(
+                (self.config.n_word_features * self.config.embed_size, 
+                    self.config.hidden_size)))
+        W_t = tf.Variable(xavier_initialization(
+                (self.config.n_tag_features * self.config.embed_size, 
+                    self.config.hidden_size)))   
+        W_d = tf.Variable(xavier_initialization(
+            (self.config.n_deprel_features * self.config.embed_size, 
+                self.config.hidden_size)))
+        
+        U = tf.Variable(xavier_initialization((self.config.hidden_size, 
+            self.config.n_classes)))
+
+        b1 = tf.Variable(tf.zeros((self.config.hidden_size, )))
+        b2 = tf.Variable(tf.zeros((self.config.n_classes)))
+ 
+        h = tf.nn.relu(tf.matmul(x_w, W_w) + 
+                        tf.matmul(x_t, W_t) +
+                        tf.matmul(x_d, W_d) + b1)
+        h_drop = tf.nn.dropout(h, self.dropout_placeholder)
+
+        pred = tf.matmul(h_drop, U) + b2
+        # pred = tf.reshape(pred, (self.config.batch_size, self.config.n_classes))
         ### END YOUR CODE
         return pred
 
@@ -207,6 +278,11 @@ class ParserModel(Model):
             loss: A 0-d tensor (scalar)
         """
         ### BEGIN YOUR CODE
+        loss = tf.nn.softmax_cross_entropy_with_logits(
+                labels=self.class_placeholder,
+                logits=pred)
+
+        loss = tf.reduce_mean(loss)
         ### END YOUR CODE
         return loss
 
@@ -226,8 +302,12 @@ class ParserModel(Model):
             train_op: The Op for training.
         """
         ### BEGIN YOUR CODE
+        optimizer = tf.train.AdamOptimizer()
+        train_op = optimizer.minimize(loss)
         ### END YOUR CODE
         return train_op
+
+    #WE'RE DONEEEEE
 
     def fit_batch(
             self,
@@ -306,6 +386,7 @@ def main(debug):
         config.n_deprel_features = deprel_batch.shape[-1]
         config.n_classes = td_batch.shape[-1]
         break
+    print(config.n_tag_ids, config.n_word_ids)
     print(
         'Word feat size: {}, tag feat size: {}, deprel feat size: {}, '
         'classes size: {}'.format(
@@ -366,4 +447,4 @@ def main(debug):
     return 0
 
 if __name__ == '__main__':
-    main(True)
+    main(debug=True)
