@@ -1,3 +1,4 @@
+'''Xin Serena Wen wenxin6 1000442666'''
 '''Statistical modelling/parsing classes'''
 
 from __future__ import absolute_import
@@ -450,4 +451,4 @@ def main(debug):
     return 0
 
 if __name__ == '__main__':
-    main(debug=True)
+    main(debug=False)

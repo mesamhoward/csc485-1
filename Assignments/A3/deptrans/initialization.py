@@ -1,3 +1,4 @@
+'''Xin Serena Wen wenxin6 1000442666'''
 '''Initialization methods'''
 
 import numpy as np
