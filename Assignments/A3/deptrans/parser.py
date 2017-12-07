@@ -260,18 +260,17 @@ class PartialParse(object):
         r_deps = get_right_deps(graph.nodes[current])
         r_deps_list = [r for r in r_deps]
         #find whether the direct right dependency is still in the buffer
-        dir_right_dep = None
-        if len(r_deps_list) > 0:
-            while(len(r_deps_list) > 0):
-                right = min(r_deps_list)
-                #Check that right is still in the buffer
-                if right >= self.next:
-                    dir_right_dep = right
-                    break
-                else:
-                    r_deps_list.remove(right)
+        
+        exist_r_dep = False
 
+        for dep in r_deps_list:
+            if dep >= self.next:
+                exist_r_dep = True
+                break
+        
         head = graph.nodes[current]['head']
+        if not head:
+            head = 0
 
         #Take out left dependencies first   
         if exist_l_dep:
@@ -279,8 +278,7 @@ class PartialParse(object):
             transition_id = self.left_arc_id
         #Take out right dependency if it doesn't have a right dependency
         #or if it doesn't have a head that will try to call on it later
-        elif not dir_right_dep and head in self.stack and len(self.stack) > 1 \
-            and current in self.stack:
+        elif not exist_r_dep and len(self.stack) > 1 and head in self.stack:
             deprl = find_deprl(graph.nodes[head], current)
             transition_id, deprel = self.right_arc_id, deprl
         #SHIFT if the buffer sin't empty

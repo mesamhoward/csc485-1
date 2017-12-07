@@ -450,4 +450,4 @@ def main(debug):
     return 0
 
 if __name__ == '__main__':
-    main(debug=False)
+    main(debug=True)
