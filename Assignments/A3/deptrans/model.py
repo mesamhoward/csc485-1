@@ -173,27 +173,27 @@ class ParserModel(Model):
                 (None, n_deprel_features * embed_size)
         """
         ### BEGIN YOUR CODE
-        word_embeddings = tf.Variable(self.word_embeddings)
-
         xavier_initializer = xavier_weight_init()
-        
+        #init variables
+        word_embeddings = tf.Variable(self.word_embeddings, dtype=tf.float32)
         tag_embeddings = tf.Variable(xavier_initializer(
-                            (self.config.n_tag_ids, self.config.embed_size)))
+                            (self.config.n_tag_ids, self.config.embed_size)), dtype=tf.float32)
         deprel_embeddings = tf.Variable(xavier_initializer(
-                            (self.config.n_deprel_ids, self.config.embed_size)))
+                            (self.config.n_deprel_ids, self.config.embed_size)), dtype=tf.float32)
 
+        #get lookups
         word_embeddings = tf.nn.embedding_lookup(
                             word_embeddings, self.word_id_placeholder)
-        word_embeddings = tf.reshape(word_embeddings, (
-            -1, self.config.n_word_features*self.config.embed_size))
-
         tag_embeddings = tf.nn.embedding_lookup(
                             tag_embeddings, self.tag_id_placeholder)
-        tag_embeddings = tf.reshape(tag_embeddings, (
-            -1, self.config.n_tag_features*self.config.embed_size))
-
         deprel_embeddings = tf.nn.embedding_lookup(
                             deprel_embeddings, self.deprel_id_placeholder)
+        
+        #reshape into proper shapes
+        word_embeddings = tf.reshape(word_embeddings, (
+            -1, self.config.n_word_features*self.config.embed_size))
+        tag_embeddings = tf.reshape(tag_embeddings, (
+            -1, self.config.n_tag_features*self.config.embed_size))        
         deprel_embeddings = tf.reshape(deprel_embeddings, (
             -1, self.config.n_deprel_features*self.config.embed_size))
         ### END YOUR CODE
@@ -235,6 +235,7 @@ class ParserModel(Model):
         ### BEGIN YOUR CODE
         xavier_initialization = xavier_weight_init()
         
+        #Initialize variables
         W_w = tf.Variable(xavier_initialization(
                 (self.config.n_word_features * self.config.embed_size, 
                     self.config.hidden_size)))
@@ -256,6 +257,7 @@ class ParserModel(Model):
                         tf.matmul(x_d, W_d) + b1)
         h_drop = tf.nn.dropout(h, self.dropout_placeholder)
 
+        pred = tf.Variable((self.config.batch_size, self.config.n_classes))
         pred = tf.matmul(h_drop, U) + b2
         # pred = tf.reshape(pred, (self.config.batch_size, self.config.n_classes))
         ### END YOUR CODE
@@ -278,6 +280,7 @@ class ParserModel(Model):
             loss: A 0-d tensor (scalar)
         """
         ### BEGIN YOUR CODE
+        loss = tf.Variable(())
         loss = tf.nn.softmax_cross_entropy_with_logits(
                 labels=self.class_placeholder,
                 logits=pred)
@@ -447,4 +450,4 @@ def main(debug):
     return 0
 
 if __name__ == '__main__':
-    main(debug=True)
+    main(debug=False)

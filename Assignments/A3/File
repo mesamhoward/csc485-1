@@ -1,0 +1,65 @@
+AssertionError: oracle test resulted in arc list
+[((None, 'TOP'), ('word_1', 'tag_1'), 'TOP'),
+((None, 'TOP'), ('word_2', 'tag_2'), 'deprel_2'),
+((None, 'TOP'), ('word_3', 'tag_3'), 'deprel_3'),
+((None, 'TOP'), ('word_4', 'tag_4'), 'deprel_4'),
+((None, 'TOP'), ('word_5', 'tag_5'), 'deprel_5')],
+
+expected
+[((None, 'TOP'), ('word_1', 'tag_1'), 'ROOT'),
+(('word_1', 'tag_1'), ('word_5', 'tag_5'), 'deprel_5'),
+(('word_3', 'tag_3'), ('word_2', 'tag_2'), 'deprel_2'),
+(('word_3', 'tag_3'), ('word_4', 'tag_4'), 'deprel_4'),
+(('word_5', 'tag_5'), ('word_3', 'tag_3'), 'deprel_3')]
+
+self.sentence = get_sentence_from_graph(graph, include_root=True)
+current = self.stack[-1]
+
+l_deps = get_left_deps(graph.nodes[current])
+l_deps_list = [l for l in l_deps]
+
+#find the direct left dependency in regards to the stack
+dir_left_dep = None
+if len(l_deps_list) > 0:
+while(len(l_deps_list) > 0):
+left = max(l_deps_list)
+if left in self.stack:
+dir_left_dep = left
+break
+else:
+l_deps_list.remove(left)
+
+r_deps = get_right_deps(graph.nodes[current])
+r_deps_list = [r for r in r_deps]
+#find whether the direct right dependency is still in the buffer
+dir_right_dep = None
+if len(r_deps_list) > 0:
+while(len(r_deps_list) > 0):
+right = min(r_deps_list)
+#Check that right is still in the buffer
+if right >= self.next:
+dir_right_dep = right
+break
+else:
+r_deps_list.remove(right)
+
+head = graph.nodes[current]['head']
+if not head:
+head = 0
+#Take out left dependencies first
+if dir_left_dep and len(self.stack) > 2 \
+and current in self.stack:
+deprl = find_deprl(graph.nodes[current], dir_left_dep)
+transition_id, deprel = self.left_arc_id, deprl
+#Take out right dependency if it doesn't have a right dependency
+#or if it doesn't have a head that will try to call on it later
+elif not dir_right_dep and head in self.stack and len(self.stack) > 1 \
+and current in self.stack:
+deprl = find_deprl(graph.nodes[head], current)
+transition_id, deprel = self.right_arc_id, deprl
+#SHIFT if the buffer sin't empty
+elif len(self.sentence) != self.next:
+transition_id = self.shift_id
+
+1900056
+1895896

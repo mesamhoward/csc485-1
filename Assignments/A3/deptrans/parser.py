@@ -248,27 +248,19 @@ class PartialParse(object):
             raise ValueError('PartialParse already completed')
         transition_id, deprel = -1, None
         ### BEGIN STUDENT CODE
-        self.sentence = get_sentence_from_graph(graph, include_root=True)
         current = self.stack[-1]
-        
         l_deps = get_left_deps(graph.nodes[current])
         l_deps_list = [l for l in l_deps]
 
-        #find the direct left dependency in regards to the stack
-        dir_left_dep = None            
-        if len(l_deps_list) > 0:
-            while(len(l_deps_list) > 0):
-                left = max(l_deps_list)
-                if left in self.stack:
-                    dir_left_dep = left
-                    break
-                else:
-                    l_deps_list.remove(left)
+        exist_l_dep = False
+        
+        if len(self.stack) > 1:
+            exist_l_dep = self.stack[-2] in l_deps_list
 
         r_deps = get_right_deps(graph.nodes[current])
         r_deps_list = [r for r in r_deps]
         #find whether the direct right dependency is still in the buffer
-        dir_right_dep = None            
+        dir_right_dep = None
         if len(r_deps_list) > 0:
             while(len(r_deps_list) > 0):
                 right = min(r_deps_list)
@@ -280,13 +272,11 @@ class PartialParse(object):
                     r_deps_list.remove(right)
 
         head = graph.nodes[current]['head']
-        if not head:
-            head = 0 
-        #Take out left dependencies first
-        if dir_left_dep and len(self.stack) > 2 \
-            and current in self.stack:
-            deprl = find_deprl(graph.nodes[current], dir_left_dep)
-            transition_id, deprel = self.left_arc_id, deprl
+
+        #Take out left dependencies first   
+        if exist_l_dep:
+            deprel = find_deprl(graph.nodes[current], self.stack[-2])
+            transition_id = self.left_arc_id
         #Take out right dependency if it doesn't have a right dependency
         #or if it doesn't have a head that will try to call on it later
         elif not dir_right_dep and head in self.stack and len(self.stack) > 1 \
@@ -353,38 +343,27 @@ def minibatch_parse(sentences, model, batch_size):
         partial_parses.append(PartialParse(sentence))
     
     #Init indice array of unfinished parses
-    unfinished_parses = []
-    for pp in range(len(partial_parses)):
-        unfinished_parses.append(pp)
+    unfinished_parses = partial_parses[:]
     
     arcs = []
 
     while len(unfinished_parses) > 0:
-        minibatch = [partial_parses[i] for i in unfinished_parses[:batch_size]]
+        minibatch = [pp for pp in unfinished_parses[:batch_size]]
         predictions = model.predict(minibatch)
         #Perform parse step on each partial parse in minibatch w/ its predicted transitions
         for i in range(len(minibatch)):
             pp = minibatch[i]
             prediction = predictions[i]
 
-            if prediction[0] in [pp.left_arc_id, pp.right_arc_id, pp.shift_id]:
-                if pp.complete or \
-                    (prediction[0] == pp.shift_id and pp.next == len(pp.sentence)) or \
-                    (prediction[0] in [pp.left_arc_id, pp.right_arc_id] and len(pp.stack) == 1) or \
-                    (prediction[0] == pp.left_arc_id and len(pp.stack) == 2):
-                        pass
-                else:
-                    try:
-                        pp.parse_step(prediction[0], prediction[1])
-                    except(ValueError):
-                        unfinished_parses.remove(i)
-
-        #remove completed parses
-        for i in range(len(partial_parses)):
-            if i in unfinished_parses and partial_parses[i].complete:
-                unfinished_parses.remove(i)
-            elif i in unfinished_parses:
-                arcs.append(partial_parses[i].arcs)
+            try:
+                pp.parse_step(prediction[0], prediction[1])
+                #Remove complete parses
+                if pp.complete:
+                    unfinished_parses.remove(pp)
+                    arcs.append(pp.arcs)
+            except(ValueError):
+                #Remove incorrect parses
+                unfinished_parses.remove(pp)
     ### END YOUR CODE
     return arcs
 
